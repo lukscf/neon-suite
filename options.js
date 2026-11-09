@@ -1,4 +1,4 @@
-const SITES = ["gmail", "whatsapp", "slack", "youtube"];
+const SITES = ["gmail", "whatsapp", "slack", "youtube", "prime"];
 const SKIP = new Set(["youtube:resume", "youtube:chanSpeed"]); // dados de uso, não preferências
 const status = (t, err) => { const s = document.getElementById("status"); s.textContent = t; s.style.color = err ? "#ff9db1" : "var(--accent)"; };
 const mine = (k) => SITES.some((s) => k.startsWith(s + ":"));

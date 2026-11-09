@@ -1,0 +1,74 @@
+#pvn-fx{position:fixed;inset:40px 0 0 330px;z-index:2;pointer-events:none;overflow:hidden;opacity:.22;mix-blend-mode:screen;--pvn-accent:#bd77ff;--pvn-glow:#bd77ff66}
+html[data-pvn-color=blue] #pvn-fx{--pvn-accent:#5c9dff;--pvn-glow:#5c9dff66}
+html[data-pvn-color=pink] #pvn-fx{--pvn-accent:#ff74bb;--pvn-glow:#ff74bb66}
+html[data-pvn-color=cyan] #pvn-fx{--pvn-accent:#4fe0db;--pvn-glow:#4fe0db66}
+html[data-pvn-color=green] #pvn-fx{--pvn-accent:#75df95;--pvn-glow:#75df9566}
+html[data-pvn-bg=none] #pvn-fx{display:none}
+#pvn-fx .pvn-fx-shape,#pvn-fx .pvn-fx-particles{position:absolute;inset:0}
+#pvn-fx .pvn-fx-particles span{position:absolute;display:none;left:var(--x);top:var(--y);animation-delay:var(--d)}
+html[data-pvn-bg=aurora] #pvn-fx{background:radial-gradient(ellipse at 50% 10%,var(--pvn-glow),transparent 60%)}
+html[data-pvn-bg=aurora] #pvn-fx .pvn-fx-shape{width:60vw;height:60vh;left:10%;top:-20%;border-radius:50%;background:radial-gradient(circle,var(--pvn-accent),transparent 65%);filter:blur(35px);animation:pvnAurora 12s ease-in-out infinite alternate}
+html[data-pvn-bg=stars] #pvn-fx .pvn-fx-particles span,html[data-pvn-bg=orbit] #pvn-fx .pvn-fx-particles span{display:block;width:var(--s);height:var(--s);border-radius:50%;background:var(--pvn-accent);font-size:0;box-shadow:0 0 9px var(--pvn-accent);animation:pvnTwinkle 2.7s ease-in-out infinite alternate}
+html[data-pvn-bg=matrix] #pvn-fx .pvn-fx-particles span{display:block;top:-20%;font:700 21px monospace;color:#70ff9e;text-shadow:0 0 9px #50ff80;animation:pvnFall calc(4s + var(--i)*.12s) linear infinite;animation-delay:calc(var(--d)*-1)}
+html[data-pvn-bg=synthwave] #pvn-fx{opacity:.3;background:linear-gradient(transparent 48%,#b93c8a44 55%,transparent 65%)}
+html[data-pvn-bg=synthwave] #pvn-fx .pvn-fx-shape:before{content:"";position:absolute;width:210px;height:210px;left:calc(50% - 105px);top:12%;border-radius:50%;background:linear-gradient(#ff88cd,#ff5277 62%,transparent 63%);box-shadow:0 0 30px #ff5aa988;animation:pvnSun 5s ease-in-out infinite alternate}
+html[data-pvn-bg=synthwave] #pvn-fx .pvn-fx-shape:after{content:"";position:absolute;left:-20%;right:-20%;bottom:-45%;height:85%;transform:perspective(500px) rotateX(62deg);transform-origin:top;background:repeating-linear-gradient(0deg,transparent 0 25px,#ff57c2 26px 27px),repeating-linear-gradient(90deg,transparent 0 50px,#ff57c2 51px 52px);animation:pvnGrid 5s linear infinite}
+html[data-pvn-bg=bokeh] #pvn-fx .pvn-fx-particles span{display:block;width:calc(var(--s)*3);height:calc(var(--s)*3);border-radius:50%;border:1px solid var(--pvn-accent);background:var(--pvn-glow);font-size:0;animation:pvnFloat calc(5s + var(--i)*.2s) ease-in-out infinite alternate}
+html[data-pvn-bg=warp] #pvn-fx .pvn-fx-particles span{display:block;left:50%;top:50%;width:calc(var(--s)*4);height:2px;background:var(--pvn-accent);box-shadow:0 0 8px var(--pvn-accent);font-size:0;animation:pvnWarp 2s linear infinite;animation-delay:calc(var(--d)*-.3)}
+html[data-pvn-bg=rain] #pvn-fx .pvn-fx-particles span{display:block;top:-20%;width:2px;height:calc(var(--s)*8);background:linear-gradient(transparent,var(--pvn-accent));box-shadow:0 0 7px var(--pvn-accent);font-size:0;animation:pvnFall 2s linear infinite;animation-delay:calc(var(--d)*-.5)}
+html[data-pvn-bg=fireflies] #pvn-fx .pvn-fx-particles span{display:block;width:5px;height:5px;border-radius:50%;background:#eaff9a;box-shadow:0 0 9px 3px #d7ff72;font-size:0;animation:pvnFloat calc(3s + var(--i)*.15s) ease-in-out infinite alternate}
+html[data-pvn-bg=orbit] #pvn-fx .pvn-fx-shape{width:490px;height:490px;left:calc(50% - 245px);top:calc(50% - 245px);border:1px solid var(--pvn-accent);border-radius:50%;box-shadow:0 0 20px var(--pvn-glow);animation:pvnOrbit 13s linear infinite}
+html[data-pvn-bg=orbit] #pvn-fx .pvn-fx-shape:before,html[data-pvn-bg=orbit] #pvn-fx .pvn-fx-shape:after{content:"";position:absolute;inset:55px;border:1px solid var(--pvn-accent);border-radius:50%;transform:rotateX(65deg)}
+html[data-pvn-bg=orbit] #pvn-fx .pvn-fx-shape:after{inset:110px;transform:rotateY(65deg)}
+@keyframes pvnAurora{to{transform:translate(25%,20%) scale(1.3)}}@keyframes pvnTwinkle{from{opacity:.15;transform:scale(.5)}to{opacity:1;transform:scale(1.3)}}@keyframes pvnFall{to{transform:translateY(140vh)}}@keyframes pvnSun{to{filter:brightness(1.4);transform:scale(1.05)}}@keyframes pvnGrid{to{background-position:0 60px,60px 0}}@keyframes pvnFloat{to{transform:translate(25px,-75px);opacity:.15}}@keyframes pvnWarp{from{opacity:0;transform:rotate(calc(var(--i)*16deg)) translateX(20px) scaleX(.3)}to{opacity:1;transform:rotate(calc(var(--i)*16deg)) translateX(60vw) scaleX(2)}}@keyframes pvnOrbit{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){#pvn-fx *{animation:none!important}}
+
+/* ---------- Prime: o fundo fica atrás do conteúdo e some com o player aberto ---------- */
+#pvn-fx{inset:0!important;z-index:-1;opacity:.5;--pvn-accent:#bd77ff;--pvn-glow:#bd77ff66}
+html:not(.pvn-theme) #pvn-fx,html[data-pvn-bg=none] #pvn-fx,html:has(.dv-player-fullscreen video) #pvn-fx{display:none}
+html[data-pvn-bg=synthwave] #pvn-fx{opacity:.55}
+html[data-pvn-bg=bullet] #pvn-fx{opacity:.75;mix-blend-mode:normal;background:none}
+html[data-pvn-bg=bullet] #pvn-fx :is(.pvn-fx-shape,.pvn-fx-particles){display:none}
+html.pvn-theme:not([data-pvn-bg=none]) body{background:transparent!important}
+html.pvn-theme:not([data-pvn-bg=none]){background:var(--pvn-bg)!important}
+
+/* ---------- Hover 3D que segue o mouse ---------- */
+html.pvn-tilt-on .pvn-follow{transform:perspective(800px) rotateX(var(--pvn-rx,0deg)) rotateY(var(--pvn-ry,0deg)) scale(var(--pvn-sc,1.015));transition:transform .14s cubic-bezier(.22,1,.36,1);will-change:transform;transform-style:preserve-3d}
+html.pvn-tilt-on .pvn-spot{position:absolute;inset:0;z-index:3;pointer-events:none;border-radius:inherit;background:radial-gradient(circle at var(--pvn-x,50%) var(--pvn-y,50%),color-mix(in srgb,var(--pvn-accent) 34%,transparent),transparent 58%);mix-blend-mode:screen}
+html.pvn-tilt-on[data-pvn-color=bullet] .pvn-spot{background:radial-gradient(circle at var(--pvn-x,50%) var(--pvn-y,50%),rgba(255,255,255,.08),transparent 60%);mix-blend-mode:normal}
+
+/* ---------- Botão do player flutuante na barra do player ---------- */
+.pvn-float-btn{display:inline-grid!important;place-items:center;vertical-align:top;opacity:.95}
+.pvn-float-btn svg{width:24px;height:24px;fill:#fff;filter:drop-shadow(0 0 4px var(--pvn-accent,#bd77ff));transition:transform .2s}
+.pvn-float-btn:hover svg{transform:scale(1.12);fill:var(--pvn-accent,#bd77ff)}
+.pvn-float-btn.on svg{fill:var(--pvn-accent,#bd77ff)}
+html:not([data-pvn-color]) .pvn-float-btn svg{filter:none}
+
+/* aviso no lugar do vídeo enquanto ele está na janela flutuante */
+#pvn-float-holder{position:absolute;inset:0;z-index:20;display:grid;place-items:center;text-align:center;color:#fff;background:radial-gradient(circle at 50% 40%,color-mix(in srgb,var(--pvn-accent,#bd77ff) 22%,#000),#000 70%);font:500 15px/1.4 Roboto,Arial,sans-serif;pointer-events:none}
+#pvn-float-holder svg{width:54px;height:54px;fill:var(--pvn-accent,#bd77ff);filter:drop-shadow(0 0 12px var(--pvn-accent,#bd77ff))}
+#pvn-float-holder p{margin:8px 0 14px}
+#pvn-float-holder button{pointer-events:auto;cursor:pointer;padding:9px 18px;border-radius:999px;border:1px solid var(--pvn-accent,#bd77ff);background:color-mix(in srgb,var(--pvn-accent,#bd77ff) 25%,#000);color:#fff;font:600 13px Roboto,Arial,sans-serif;box-shadow:0 0 14px color-mix(in srgb,var(--pvn-accent,#bd77ff) 60%,transparent)}
+#pvn-float-holder button:hover{background:var(--pvn-accent,#bd77ff);color:#000}
+
+#pvn-toast{position:fixed;left:50%;bottom:28px;z-index:9999;max-width:min(520px,90vw);padding:12px 18px;border-radius:12px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#140b1e;color:#fff;border:1px solid var(--pvn-accent,#bd77ff);box-shadow:0 12px 32px #000a,0 0 16px color-mix(in srgb,var(--pvn-accent,#bd77ff) 45%,transparent);font:500 14px/1.4 Roboto,Arial,sans-serif;transition:opacity .2s,transform .2s}
+#pvn-toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* botão "Flutuar" sobre o próprio vídeo: abaixo da fila de botões do Prime, aparece com o mouse e some nos anúncios */
+.pvn-float-overlay{position:absolute;top:92px;right:24px;z-index:60;display:flex!important;align-items:center;gap:6px;height:36px;padding:0 14px 0 10px;border-radius:999px;border:1px solid color-mix(in srgb,var(--pvn-accent,#bd77ff) 70%,transparent);background:color-mix(in srgb,#000 62%,var(--pvn-accent,#bd77ff));color:#fff;font:600 13px/1 "Amazon Ember",Arial,sans-serif;cursor:pointer;opacity:0;transform:translateY(-4px);transition:opacity .2s,transform .2s,box-shadow .2s;box-shadow:0 0 14px color-mix(in srgb,var(--pvn-accent,#bd77ff) 45%,transparent)}
+.pvn-float-overlay svg{width:20px;height:20px;fill:currentColor}
+.dv-player-fullscreen:hover .pvn-float-overlay,.pvn-float-overlay:focus-visible,.pvn-float-overlay.on{opacity:1;transform:none}
+.pvn-float-overlay:hover{background:var(--pvn-accent,#bd77ff);color:#000;box-shadow:0 0 22px var(--pvn-accent,#bd77ff)}
+html.pvn-ad .pvn-float-overlay,html.pvn-no-float-btn .pvn-float-btn{display:none!important}
+html[data-pvn-color=bullet] .pvn-float-overlay{background:#1A1A1A;border-color:#333;box-shadow:0 12px 32px rgba(0,0,0,.55)}
+html[data-pvn-color=bullet] .pvn-float-overlay:hover{background:#F8F3E9;color:#070707}
+/* botão na fila de cima do player, do mesmo tamanho dos botões do Prime */
+.pvn-bar-btn{width:59px;height:59px;border:0;border-radius:50%;background:transparent;cursor:pointer}
+.pvn-bar-btn svg{width:28px;height:28px}
+.pvn-bar-btn:hover{background:#ffffff1f}
+
+/* aviso na tela (velocidade, volume, abertura pulada) */
+#pvn-osd{position:absolute;top:96px;left:50%;z-index:70;padding:9px 16px;border-radius:999px;transform:translate(-50%,-6px);opacity:0;pointer-events:none;background:color-mix(in srgb,#000 78%,var(--pvn-accent,#bd77ff));border:1px solid color-mix(in srgb,var(--pvn-accent,#bd77ff) 60%,transparent);color:#fff;font:600 15px/1.2 "Amazon Ember",Arial,sans-serif;box-shadow:0 0 18px color-mix(in srgb,var(--pvn-accent,#bd77ff) 40%,transparent);transition:opacity .18s,transform .18s;white-space:nowrap}
+#pvn-osd.in-page{position:fixed}
+#pvn-osd.show{opacity:1;transform:translate(-50%,0)}
+html[data-pvn-color=bullet] #pvn-osd{background:#1A1A1A;border-color:#333;box-shadow:0 12px 32px rgba(0,0,0,.55)}

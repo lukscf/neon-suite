@@ -1,17 +1,17 @@
 <p align="center"><img src="icons/icon128.png" width="96" alt="Ícone da Neon Suite"></p>
 
-# Neon Suite: Gmail, WhatsApp, Slack e YouTube
+# Neon Suite: Gmail, WhatsApp, Slack, YouTube e Prime Video
 
-**Neon Suite** é uma extensão só para Chrome e Edge que junta o GM Neon, o WP Neon, o SL Neon e o YT Neon. Ela dá tema neon e recursos extras ao Gmail, ao WhatsApp Web, ao Slack e ao YouTube.
+**Neon Suite** é uma extensão só para Chrome e Edge que junta o GM Neon, o WP Neon, o SL Neon e o YT Neon, e inclui também o Prime Video. Ela dá tema neon e recursos extras ao Gmail, ao WhatsApp Web, ao Slack, ao YouTube e ao Prime Video.
 
 **O menu abre conforme o site em que você está.** Clique no ícone da barra:
 - no Gmail, abre o menu do Gmail;
 - no YouTube, abre o do YouTube;
-- em qualquer outro site, abre a página inicial com os quatro sites e uma cor para aplicar em todos de uma vez.
+- em qualquer outro site, abre a página inicial com todos os sites e uma cor para aplicar em todos de uma vez.
 
 O ícone da barra também muda conforme o site da aba, na cor escolhida para ele.
 
-> Projeto independente, sem relação com Google, Meta, Slack/Salesforce ou YouTube. Gmail e YouTube são marcas do Google LLC, WhatsApp da Meta e Slack da Slack Technologies, LLC.
+> Projeto independente, sem relação com Google, Meta, Slack/Salesforce, YouTube ou Amazon. Gmail e YouTube são marcas do Google LLC, WhatsApp da Meta, Slack da Slack Technologies, LLC e Prime Video da Amazon.com, Inc.
 
 ## O que cada site ganha
 
@@ -20,6 +20,7 @@ O ícone da barra também muda conforme o site da aba, na cor escolhida para ele
 | **Gmail** | Tema escuro neon, 6 cores, fundos animados, hover 3D que segue o mouse, compose neon, marcar tudo como lido (com confirmação) e modo discreto (Alt+P) |
 | **WhatsApp Web** | Transcrição dos áudios recebidos **no seu PC** (Whisper local), tema neon com várias cores, fundos animados, efeitos 3D e fontes |
 | **Slack** | Tema neon, fontes (Roboto Mono, Open Sans, Arial), fundos animados, **aviso neon de mensagens** com o Slack em foco e aviso do Windows com o ícone do tema e o botão "Abrir no Slack" |
+| **Prime Video** | Tema neon, **player flutuante sempre por cima** (funciona com o DRM do Prime), velocidade de 0,25x a 4x, volume até 400%, normalização, roda do mouse no volume e, se você ligar, pular abertura e recapitulação e ir ao próximo episódio (nunca durante anúncios) |
 | **YouTube** | **Player flutuante sempre por cima** (completo, com esticar, ou mínimo, sem barra), velocidade de 0,25x a 4x com memória por canal, volume até 400%, loop A-B, captura de frame, qualidade padrão, retomar de onde parou, modo foco, esconder Shorts e comentários, grade com colunas ajustáveis e atalhos editáveis |
 
 Todos os sites têm a cor Bullet e o fundo "Bullet: balas e cripto".
@@ -43,7 +44,7 @@ As preferências das extensões antigas não passam para a Suite, então é só 
 ## Estrutura
 
 ```
-manifest.json       um manifest para os quatro sites
+manifest.json       um manifest para os cinco sites
 background.js       service worker único: ícone por aba + background de cada site
 ns.js               preferências por site (prefixo gmail:, whatsapp:, slack:, youtube:)
 popup.*             abre o menu do site da aba; senão, a página inicial

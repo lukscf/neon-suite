@@ -1,5 +1,14 @@
 # Histórico
 
+## 1.1.0
+- **Prime Video**, o quinto site da Suite. O menu, o ícone e as preferências são próprios.
+  - **Tema neon** com 6 cores, incluindo Bullet. O azul do Prime vira a cor do tema, as capas dos títulos brilham e inclinam com o mouse, e há fundo animado fora do player.
+  - **Player flutuante sempre por cima:** testado com o DRM do Prime, a imagem aparece. Tem o modo completo, com controles neon e esticar, e o modo mínimo.
+  - **Velocidade** de 0,25x a 4x, **volume extra até 400%**, normalização e roda do mouse no volume.
+  - **Automático (opcional):** pular abertura, pular recapitulação e ir ao próximo episódio. Só aperta os botões do próprio Prime e nunca age durante anúncios.
+  - **Atalhos editáveis** na página de opções do Prime.
+- A página inicial da Suite e o "Cor em todos os sites" incluem o Prime Video.
+
 ## 1.0.0
 - Primeira versão da **Neon Suite**, que junta numa extensão só o GM Neon 1.4.0 (Gmail), o WP Neon 2.3.0 (WhatsApp Web), o SL Neon 1.2.0 (Slack) e o YT Neon 1.0.0 (YouTube).
 - **Popup por site:** o ícone abre o menu do site da aba. Fora deles, abre a página inicial com os quatro sites e "Cor em todos os sites".

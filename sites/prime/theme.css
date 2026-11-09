@@ -1,0 +1,41 @@
+/* Prime Neon (Neon Suite): tema neon para www.primevideo.com. Liga com html.pvn-theme; cor em html[data-pvn-color].
+   As classes do Prime são geradas e mudam a cada versão, então o tema usa os data-testid estáveis
+   e, para o azul do Prime, as classes pvn-blue-* que o content.js põe nos elementos com essa cor.
+   Anúncios não são escondidos nem alterados. */
+
+html.pvn-theme{--pvn-bg:#120918;--pvn-panel:#1d0f27;--pvn-raised:#2a1837;--pvn-line:#48305a;--pvn-text:#f6ebff;--pvn-muted:#c4b4cf;--pvn-accent:#bd77ff;--pvn-accent2:#ff3ec8;--pvn-glow:#bd77ff66}
+html.pvn-theme[data-pvn-color=blue]{--pvn-bg:#090f18;--pvn-panel:#0f1827;--pvn-raised:#182337;--pvn-line:#303f5a;--pvn-text:#ebf2ff;--pvn-muted:#b4becf;--pvn-accent:#5c9dff;--pvn-accent2:#50dcff;--pvn-glow:#5c9dff66}
+html.pvn-theme[data-pvn-color=pink]{--pvn-bg:#180911;--pvn-panel:#270f1b;--pvn-raised:#371828;--pvn-line:#5a3045;--pvn-text:#ffebf5;--pvn-muted:#cfb4c2;--pvn-accent:#ff74bb;--pvn-accent2:#ffbe78;--pvn-glow:#ff74bb66}
+html.pvn-theme[data-pvn-color=cyan]{--pvn-bg:#091818;--pvn-panel:#0f2726;--pvn-raised:#183736;--pvn-line:#305a58;--pvn-text:#ebfffe;--pvn-muted:#b4cfce;--pvn-accent:#4fe0db;--pvn-accent2:#32a0ff;--pvn-glow:#4fe0db66}
+html.pvn-theme[data-pvn-color=green]{--pvn-bg:#09180e;--pvn-panel:#0f2717;--pvn-raised:#183722;--pvn-line:#305a3e;--pvn-text:#ebfff1;--pvn-muted:#b4cfbd;--pvn-accent:#75df95;--pvn-accent2:#c8ff78;--pvn-glow:#75df9566}
+/* Tema Bullet: rampa ink neutra, lime-500 só como acento */
+html.pvn-theme[data-pvn-color=bullet]{--pvn-bg:#070707;--pvn-panel:#0C0C0C;--pvn-raised:#1A1A1A;--pvn-line:#242424;--pvn-text:#FFFFFF;--pvn-muted:#A3A3A3;--pvn-accent:#C2F141;--pvn-accent2:#C2F141;--pvn-glow:rgba(194,241,65,.18)}
+
+html.pvn-theme,html.pvn-theme body{background-color:var(--pvn-bg)!important}
+html.pvn-theme{color-scheme:dark;scrollbar-color:var(--pvn-line) var(--pvn-bg)}
+html.pvn-theme ::selection{background:color-mix(in srgb,var(--pvn-accent) 45%,transparent)}
+
+/* Menu do topo: linha de luz embaixo e item ativo/hover na cor do tema */
+html.pvn-theme :is(header,nav):has(a[data-testid=pv-nav-home]){background:color-mix(in srgb,var(--pvn-bg) 88%,transparent)!important;backdrop-filter:blur(14px);box-shadow:0 1px 0 color-mix(in srgb,var(--pvn-accent) 30%,transparent),0 8px 24px #0006}
+html.pvn-theme a[data-testid^=pv-nav-]:hover,html.pvn-theme a[data-testid^=pv-nav-][aria-current]{color:var(--pvn-accent)!important;text-shadow:0 0 12px var(--pvn-glow)}
+html.pvn-theme [data-testid$=-dropdown]{background:var(--pvn-panel)!important;border:1px solid var(--pvn-line);box-shadow:0 12px 32px rgba(0,0,0,.55)!important}
+
+/* O azul do Prime vira a cor do tema (classes postas pelo content.js) */
+html.pvn-theme .pvn-blue-bg{background-color:var(--pvn-accent)!important;background-image:linear-gradient(135deg,var(--pvn-accent),var(--pvn-accent2))!important;color:var(--pvn-bg)!important;box-shadow:0 0 14px var(--pvn-glow)}
+html.pvn-theme .pvn-blue-bg *{color:inherit!important;fill:currentColor!important}
+html.pvn-theme .pvn-blue-fg{color:var(--pvn-accent)!important;fill:var(--pvn-accent)!important}
+html.pvn-theme .pvn-blue-border{border-color:var(--pvn-accent)!important}
+html.pvn-theme[data-pvn-color=bullet] .pvn-blue-bg{background:#F8F3E9!important;color:#070707!important;box-shadow:none}
+
+/* Capas dos títulos: canto neon e brilho no hover */
+html.pvn-theme article[data-testid=card] [data-testid=packshot]{border-radius:10px;transition:box-shadow .25s cubic-bezier(.22,1,.36,1)}
+html.pvn-theme article[data-testid=card]:hover [data-testid=packshot]{box-shadow:0 0 0 2px var(--pvn-accent),0 12px 32px var(--pvn-glow)}
+html.pvn-theme[data-pvn-color=bullet] article[data-testid=card]:hover [data-testid=packshot]{box-shadow:0 0 0 1px #333,0 12px 32px rgba(0,0,0,.55)}
+html.pvn-theme [data-testid=carousel-title]{text-shadow:0 0 14px var(--pvn-glow)}
+
+/* Player: alça da barra de progresso e foco na cor do tema */
+html.pvn-theme .atvwebplayersdk-progress-bar-handle{background:var(--pvn-accent)!important;box-shadow:0 0 10px var(--pvn-accent)!important}
+html.pvn-theme .dv-player-fullscreen input[type=range]{accent-color:var(--pvn-accent)}
+
+html.pvn-theme :focus-visible{outline:2px solid var(--pvn-accent)!important;outline-offset:2px}
+html.pvn-theme[data-pvn-color=bullet] *{transition-timing-function:cubic-bezier(.22,1,.36,1)}

@@ -9,7 +9,8 @@
     "mail.google.com": "gmail",
     "web.whatsapp.com": "whatsapp",
     "app.slack.com": "slack",
-    "www.youtube.com": "youtube"
+    "www.youtube.com": "youtube",
+    "www.primevideo.com": "prime"
   };
   const siteOfUrl = (url) => {
     try { return SITES[new URL(url).hostname] || null; } catch { return null; }
