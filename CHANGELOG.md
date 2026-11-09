@@ -1,5 +1,8 @@
 # Histórico
 
+## 1.1.1
+- **Prime Video: legenda na janela flutuante.** O Prime desenha a legenda numa camada da página, fora do vídeo. Agora o texto é copiado em tempo real para a janela flutuante (modo completo), com fundo escuro e tamanho proporcional à janela. A legenda sobe quando os controles aparecem. Para ligar e desligar, use o botão de legendas do próprio Prime.
+
 ## 1.1.0
 - **Prime Video**, o quinto site da Suite. O menu, o ícone e as preferências são próprios.
   - **Tema neon** com 6 cores, incluindo Bullet. O azul do Prime vira a cor do tema, as capas dos títulos brilham e inclinam com o mouse, e há fundo animado fora do player.

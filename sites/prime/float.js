@@ -86,6 +86,9 @@
     .seek{width:100%;display:block;margin-bottom:4px}
     .vol{width:64px}
     body.fill .stage video{object-fit:fill!important}
+    .cc{position:fixed;left:6%;right:6%;bottom:9%;display:flex;flex-direction:column;align-items:center;gap:4px;pointer-events:none;transition:bottom .2s;z-index:2}
+    .cc span{max-width:100%;padding:2px 10px;border-radius:6px;background:rgba(0,0,0,.62);color:#fff;font:500 clamp(13px,4.4vw,34px)/1.25 Arial,sans-serif;text-align:center;text-shadow:0 1px 2px #000;white-space:pre-line}
+    body.show .cc,body.paused .cc{bottom:calc(9% + 70px)}
     @media (max-width:300px){.vol,.time{display:none}}
     @media (prefers-reduced-motion:reduce){*{transition:none!important}}
   `;
@@ -118,7 +121,31 @@
         <button class="fit" aria-pressed="false"></button>
         <button class="back" title="Voltar para a página" aria-label="Voltar o vídeo para a página">${svg("back")}</button>
       </div>`;
-    d.body.append(stage, frame, title, ctl);
+    // Legenda: o Prime desenha a legenda numa camada da página (span.atvwebplayersdk-captions-text),
+    // fora do <video>. Ela continua sendo atualizada na página; aqui o texto é copiado para a janela.
+    const cc = d.createElement("div");
+    cc.className = "cc";
+    cc.setAttribute("aria-live", "polite");
+    d.body.append(stage, frame, cc, title, ctl);
+    let ccText = "";
+    const paintCaptions = () => {
+      const lines = [...document.querySelectorAll(".atvwebplayersdk-captions-text")]
+        .map((el) => el.textContent.trim()).filter(Boolean);
+      const text = lines.join("|");
+      if (text === ccText) return;
+      ccText = text;
+      cc.textContent = "";
+      for (const line of lines) { const sp = d.createElement("span"); sp.textContent = line; cc.appendChild(sp); }
+    };
+    let ccFrame = 0;
+    // usa o requestAnimationFrame da janela flutuante: o da aba do Prime para quando ela fica em segundo plano
+    const ccObserver = new MutationObserver(() => { if (!ccFrame) ccFrame = win.requestAnimationFrame(() => { ccFrame = 0; paintCaptions(); }); });
+    const ccRoot = document.querySelector(PLAYER) || document.body;
+    ccObserver.observe(ccRoot, { childList: true, subtree: true, characterData: true });
+    paintCaptions();
+    // reserva: confere a legenda a cada 250 ms (o Prime pode trocar o texto sem mudar a árvore)
+    const ccTimer = win.setInterval(paintCaptions, 250);
+    st.cleanup.push(() => { ccObserver.disconnect(); win.clearInterval(ccTimer); });
     stage.appendChild(video); // mesmo elemento: continua tocando do mesmo ponto
 
     const $ = (s) => ctl.querySelector(s);
