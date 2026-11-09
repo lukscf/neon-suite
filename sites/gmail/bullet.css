@@ -1,0 +1,29 @@
+/* Tema Bullet: paleta, tipografia e movimento do Bullet Identity Source v1.27.
+   Fundo ink-990, rampa ink, texto branco e paper-100. Acento lime-500 só em detalhe, nunca como fundo. */
+@font-face{font-family:"GMN Open Sans";font-weight:300 800;font-style:normal;font-display:swap;src:url("chrome-extension://__MSG_@@extension_id__/fonts/OpenSans-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"GMN Open Sans";font-weight:300 800;font-style:normal;font-display:swap;src:url("chrome-extension://__MSG_@@extension_id__/fonts/OpenSans-latinext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+body.gmn-theme[data-gmn-color=bullet]{--gmn-bg:#070707;--gmn-panel:#0C0C0C;--gmn-panel2:#131313;--gmn-raised:#1A1A1A;--gmn-line:#242424;--gmn-text:#FFFFFF;--gmn-muted:#A3A3A3;--gmn-accent:#C2F141;--gmn-glow:rgba(194,241,65,.16);--gmn-soft:rgba(255,255,255,.08);--gmn-soft2:rgba(255,255,255,.10)}
+body.gmn-theme[data-gmn-color=bullet],body.gmn-theme[data-gmn-color=bullet] :not(svg,path,img,video,canvas,.a3s *,[class*=material],[class*=google-symbols],.aio,.T-I .asa,.G-asx,.gb_E svg){font-family:"GMN Open Sans","Open Sans",Arial,sans-serif!important}
+body.gmn-theme[data-gmn-color=bullet] :is(h1,h2,.hP,.aKz){font-weight:300!important;letter-spacing:-.01em}
+body.gmn-theme[data-gmn-color=bullet] :focus-visible{outline:2px solid #C2F141!important;outline-offset:2px}
+/* Pasta ativa: superfície elevada, texto off-white e um fio lime à esquerda (ativo nunca só por cor) */
+body.gmn-theme[data-gmn-color=bullet] :is([role=navigation],.Ls77Lb,.nM) .TO.nZ{background:#1A1A1A!important;border-color:#333333!important;box-shadow:inset 3px 0 0 #C2F141,0 12px 32px rgba(0,0,0,.55)!important}
+body.gmn-theme[data-gmn-color=bullet] :is([role=navigation],.Ls77Lb,.nM) .TO.nZ :is(a,span,.nU,.bsU){color:#F8F3E9!important;text-shadow:none!important}
+body.gmn-theme[data-gmn-color=bullet] :is([role=navigation],.Ls77Lb,.nM) .TO.nZ .qj{filter:brightness(0) invert(1)!important}
+body.gmn-theme[data-gmn-color=bullet] :is([role=navigation],.Ls77Lb,.nM) .TO .bsU{color:#070707!important;background:#C2F141!important;border-color:#C2F141!important}
+body.gmn-theme[data-gmn-color=bullet] :is([role=navigation],.Ls77Lb,.nM) .TO.nZ .bsU{background:#C2F141!important;color:#070707!important}
+/* Botões primários: pílula clara com texto preto (Escrever, Enviar), estados por véu */
+body.gmn-theme[data-gmn-color=bullet] :is(.T-I-KE,[gh=cm]){background:#F8F3E9!important;color:#070707!important;border:0!important;border-radius:999px!important;box-shadow:0 12px 32px rgba(0,0,0,.55)!important}
+body.gmn-theme[data-gmn-color=bullet] :is(.T-I-KE,[gh=cm]) *{color:#070707!important}
+body.gmn-theme[data-gmn-color=bullet] :is(.T-I-KE,[gh=cm]):hover{background:#FFFFFF!important;box-shadow:0 12px 32px rgba(0,0,0,.55),0 0 0 2px #C2F141!important}
+body.gmn-theme[data-gmn-color=bullet] :is(.btC,.gmn-composer) :is(.T-I.aoO,.T-I.hG){background:#F8F3E9!important;color:#070707!important;animation:none!important;text-shadow:none!important}
+body.gmn-theme[data-gmn-color=bullet] :is(.btC,.gmn-composer) .T-I.aoO{border-radius:999px 0 0 999px!important}
+body.gmn-theme[data-gmn-color=bullet] :is(.btC,.gmn-composer) .T-I.hG{border-radius:0 999px 999px 0!important;border-left:1px solid #A3A3A3!important}
+body.gmn-theme[data-gmn-color=bullet] :is(.btC,.gmn-composer) .T-I.hG *{filter:brightness(0)!important}
+body.gmn-theme[data-gmn-color=bullet] .gmn-markread{background:#1A1A1A!important;color:#F8F3E9!important;border-color:#333333!important;border-radius:999px!important}
+body.gmn-theme[data-gmn-color=bullet] .gmn-markread::before,body.gmn-theme[data-gmn-color=bullet] .gmn-markread svg{color:#C2F141!important}
+/* Movimento da marca */
+body.gmn-theme[data-gmn-color=bullet] :is(.TO,.T-I,tr.zA,.gmn-markread){transition-timing-function:cubic-bezier(.22,1,.36,1)!important}
+/* Fundo "Bullet": o canvas do bullet-fx.js entra dentro de #gmn-fx */
+body[data-gmn-bg=bullet] #gmn-fx{opacity:.6;mix-blend-mode:normal;background:none}
+body[data-gmn-bg=bullet] #gmn-fx :is(.gmn-fx-shape,.gmn-fx-particles){display:none}

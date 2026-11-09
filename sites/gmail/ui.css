@@ -1,0 +1,193 @@
+/* GM Neon 1.1 — menus sólidos, conversa legível e botões no visual do mockup */
+body.gmn-theme{--gmn-soft:color-mix(in srgb,var(--gmn-accent) 18%,transparent);--gmn-soft2:color-mix(in srgb,var(--gmn-accent) 30%,transparent)}
+
+/* ---------- 1. Menus e pop-ups: fundo sólido, nunca transparente ---------- */
+body.gmn-theme [role=menu],
+body.gmn-theme div:has(> [role=menu]),
+body.gmn-theme div:has(> div > [role=menu]),
+body.gmn-theme .J-M,
+body.gmn-theme [role=listbox]{background:var(--gmn-panel)!important;background-color:var(--gmn-panel)!important;color:var(--gmn-text)!important;opacity:1!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+body.gmn-theme div:has(> div > [role=menu]),
+body.gmn-theme .J-M,
+body.gmn-theme [role=listbox]{border:1px solid var(--gmn-line)!important;border-radius:14px!important;box-shadow:0 18px 50px #000b,0 0 22px var(--gmn-glow)!important;overflow:hidden}
+body.gmn-theme [role=menu] [role=menuitem],body.gmn-theme [role=menu] [role=menuitemcheckbox],body.gmn-theme [role=menu] [role=menuitemradio],
+body.gmn-theme [role=menu] li,body.gmn-theme [role=listbox] [role=option],
+body.gmn-theme .J-M .J-N{background:transparent!important;color:var(--gmn-text)!important;border-radius:9px;transition:background-color .15s,color .15s}
+body.gmn-theme [role=menu] [role=menuitem] *,body.gmn-theme [role=menu] li *,body.gmn-theme .J-M .J-N *{color:inherit!important}
+body.gmn-theme [role=menu] li:hover,body.gmn-theme [role=menu] li:focus-within,
+body.gmn-theme [role=menu] [role=menuitem]:hover,body.gmn-theme [role=menu] [role=menuitem]:focus,
+body.gmn-theme [role=listbox] [role=option]:hover,body.gmn-theme [role=listbox] [aria-selected=true],
+body.gmn-theme .J-M .J-N:hover,body.gmn-theme .J-M .J-N-JT{background:var(--gmn-soft)!important;color:var(--gmn-accent)!important;outline:none!important}
+body.gmn-theme [role=menu] [role=separator],body.gmn-theme [role=menu] hr,body.gmn-theme .J-M .J-Kh{background:transparent!important;border-color:var(--gmn-line)!important}
+body.gmn-theme [role=menu] li[role=separator],body.gmn-theme [role=menu] li[role=separator]:hover{background:linear-gradient(var(--gmn-line),var(--gmn-line)) center/calc(100% - 20px) 1px no-repeat!important}
+body.gmn-theme [role=menu] svg,body.gmn-theme [role=menu] img,body.gmn-theme .J-M .J-N img{filter:invert(1) brightness(1.1)}
+body.gmn-theme [role=menu] li:hover svg,body.gmn-theme [role=menu] [role=menuitem]:hover svg{filter:invert(1) drop-shadow(0 0 4px var(--gmn-accent))}
+
+/* ---------- Conversa aberta: cabeçalhos e corpo legíveis ---------- */
+body.gmn-theme [role=main] .hP{color:var(--gmn-text)!important;text-shadow:0 0 18px var(--gmn-glow)}
+body.gmn-theme [role=main] :is(.hb,.g2,.gD,.go,.g3,.iA,.y2,.ajB,.ajC,.adl,.ade,.ajA,.T-I-JW),
+body.gmn-theme [role=main] span[email],
+body.gmn-theme [role=main] [role=listitem] :is(span,div,td,h3):not(.a3s,.a3s *,.ar,.ar *,[role=button],[role=button] *){color:var(--gmn-text)!important}
+body.gmn-theme [role=main] :is(.g3,.iA,.y2,.go,.ajB,.hb){color:var(--gmn-muted)!important}
+body.gmn-theme [role=main] [role=listitem]{background:transparent!important}
+body.gmn-theme [role=main] [role=listitem] .adn,body.gmn-theme [role=main] .kv,body.gmn-theme [role=main] .kQ,body.gmn-theme [role=main] .h7{background:color-mix(in srgb,var(--gmn-panel) 88%,transparent)!important;border-color:var(--gmn-line)!important}
+body.gmn-theme [role=main] .ar{filter:saturate(1.1)}
+/* Corpo do e-mail com texto escuro: o content.js marca com .gmn-invert e o CSS inverte só o conteúdo, preservando imagens */
+body.gmn-theme .a3s.gmn-invert{filter:invert(.9) hue-rotate(180deg);background:transparent!important;color:#1b1b1f!important}
+body.gmn-theme .a3s.gmn-invert :is(img,video,picture,canvas,svg image,[style*="background-image"]){filter:invert(1) hue-rotate(180deg)}
+body.gmn-theme [role=main] .nr.wR,body.gmn-theme [role=main] .DC5CAd,body.gmn-theme [role=main] .amn,body.gmn-theme [role=main] .ip,body.gmn-theme [role=main] .aDh{background:transparent!important;border-color:var(--gmn-line)!important}
+
+/* ---------- 2. Botões no visual do mockup ---------- */
+/* Escrever: contorno neon, gradiente suave e brilho */
+body.gmn-theme .T-I-KE,body.gmn-theme [gh=cm]{background:linear-gradient(120deg,var(--gmn-soft2),color-mix(in srgb,var(--gmn-panel) 70%,transparent))!important;border:1px solid var(--gmn-accent)!important;border-radius:14px!important;color:var(--gmn-text)!important;font-weight:700!important;box-shadow:0 0 20px var(--gmn-glow),inset 0 0 14px color-mix(in srgb,var(--gmn-accent) 12%,transparent)!important;transition:transform .22s cubic-bezier(.16,1,.3,1),box-shadow .22s,background .22s!important}
+body.gmn-theme .T-I-KE:hover,body.gmn-theme [gh=cm]:hover{transform:translateY(-3px);background:linear-gradient(120deg,var(--gmn-accent),color-mix(in srgb,var(--gmn-accent) 45%,var(--gmn-panel)))!important;box-shadow:0 8px 28px var(--gmn-glow),0 0 34px var(--gmn-glow)!important}
+body.gmn-theme .T-I-KE:active,body.gmn-theme [gh=cm]:active{transform:translateY(0) scale(.97)}
+body.gmn-theme .T-I-KE::before,body.gmn-theme .T-I-KE .aH5{filter:drop-shadow(0 0 5px var(--gmn-accent))}
+
+/* Barra de ferramentas como cartão, igual ao mockup */
+body.gmn-theme [role=main] [gh=tm],body.gmn-theme [role=main] .G-atb{background:var(--gmn-panel)!important;border:1px solid var(--gmn-line)!important;border-radius:14px!important;box-shadow:0 0 18px color-mix(in srgb,var(--gmn-accent) 14%,transparent)!important;margin:6px 8px 8px 0!important}
+body.gmn-theme [role=main] [gh=tm] :is(.bzn,.aqL,.aqK,.G-tF,.G-Ni){height:auto!important;overflow:visible!important}
+/* Botões de ícone: chip quadrado arredondado com contorno, hover com brilho e elevação */
+body.gmn-theme [role=main] [gh=tm] .T-I:not(.T-I-KE),body.gmn-theme [role=main] .G-atb .T-I:not(.T-I-KE),body.gmn-theme [role=main] .iH .T-I,body.gmn-theme [role=main] .Cr .T-I{min-width:34px!important;height:34px!important;border:1px solid var(--gmn-line)!important;border-radius:10px!important;background:color-mix(in srgb,var(--gmn-raised) 85%,transparent)!important;margin:0 3px!important;transition:transform .2s cubic-bezier(.16,1,.3,1),border-color .2s,background-color .2s,box-shadow .2s!important}
+body.gmn-theme [role=main] [gh=tm] .T-I:not(.T-I-KE):hover,body.gmn-theme [role=main] .G-atb .T-I:not(.T-I-KE):hover,body.gmn-theme [role=main] .iH .T-I:hover,body.gmn-theme [role=main] .Cr .T-I:hover,
+body.gmn-theme [role=main] [gh=tm] .T-I.T-I-JO,body.gmn-theme [role=main] .G-atb .T-I.T-I-JO{border-color:var(--gmn-accent)!important;background:var(--gmn-soft)!important;box-shadow:0 0 14px var(--gmn-glow)!important;transform:translateY(-2px)}
+body.gmn-theme [role=main] .T-I .asa,body.gmn-theme [role=main] .T-I .G-asx,body.gmn-theme [role=main] .T-I svg{transition:filter .2s}
+body.gmn-theme [role=main] .T-I:hover .asa,body.gmn-theme [role=main] .T-I:hover .G-asx,body.gmn-theme [role=main] .T-I:hover svg{filter:drop-shadow(0 0 4px var(--gmn-accent)) brightness(1.25)}
+body.gmn-theme [role=main] .T-Jo{border-radius:5px!important;box-shadow:0 0 0 1px var(--gmn-accent),0 0 8px var(--gmn-glow)!important}
+
+/* Botão "Marcar tudo como lido" que a extensão coloca na barra, como no mockup */
+.gmn-markread{position:relative;z-index:1;display:inline-flex;align-items:center;gap:7px;height:32px;margin:0 6px 0 10px;padding:0 13px;border:1px solid var(--gmn-line);border-radius:9px;background:var(--gmn-soft,#bd77ff2e);color:var(--gmn-accent,#bd77ff);font:700 12px/1 "Google Sans",Roboto,Arial,sans-serif;letter-spacing:.01em;white-space:nowrap;cursor:pointer;vertical-align:middle;transition:background .2s,color .2s,box-shadow .2s,transform .2s cubic-bezier(.16,1,.3,1)}
+.gmn-markread b{font-size:14px;line-height:1}
+.gmn-markread:hover,.gmn-markread:focus-visible{background:var(--gmn-accent,#bd77ff);color:var(--gmn-bg,#100b1a);box-shadow:0 0 18px var(--gmn-glow,#bd77ff66);transform:translateY(-2px);outline:none}
+.gmn-markread:disabled{opacity:.45;cursor:default;transform:none}
+body:not(.gmn-theme) .gmn-markread{display:none}
+@media(max-width:1100px){.gmn-markread span{display:none}}
+
+/* Menu lateral redesenhado: cartões 3D com hover inclinado, ícone que salta e item ativo em relevo */
+body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .ajl{overflow:visible!important}
+body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .byl,body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .n3{perspective:700px;perspective-origin:0 50%}
+body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .aim{padding:2px 6px 2px 4px!important;transform-style:preserve-3d}
+body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .TO{position:relative;height:auto!important;min-height:34px;border-radius:12px!important;border:1px solid transparent!important;background:linear-gradient(100deg,color-mix(in srgb,var(--gmn-raised) 70%,transparent),transparent 85%)!important;transform-origin:0 50%;transform:perspective(700px) rotateY(var(--gmn-ry,0deg)) rotateX(var(--gmn-rx,0deg)) translateZ(0);transform-style:preserve-3d;transition:transform .28s cubic-bezier(.16,1,.3,1),background .25s,border-color .25s,box-shadow .25s!important;will-change:transform}
+body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .TO .TN{height:34px!important;align-items:center;transform-style:preserve-3d}
+body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .TO .qj{transition:transform .3s cubic-bezier(.34,1.56,.64,1),filter .25s}
+body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .TO :is(a,span,.nU,.aio){color:var(--gmn-text)!important;transition:color .2s,text-shadow .2s;transform:translateZ(0)}
+body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .TO:hover{border-color:color-mix(in srgb,var(--gmn-accent) 55%,transparent)!important;background:radial-gradient(circle at var(--gmn-x,30%) var(--gmn-y,50%),var(--gmn-soft2),color-mix(in srgb,var(--gmn-raised) 80%,transparent) 75%)!important;box-shadow:8px 10px 22px #0009,0 0 18px var(--gmn-glow)!important;transform:perspective(700px) rotateY(var(--gmn-ry,-9deg)) rotateX(var(--gmn-rx,0deg)) translateX(6px) translateZ(18px)}
+body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .TO:hover .qj{transform:translateZ(26px) scale(1.22) rotate(-6deg);filter:drop-shadow(0 0 6px var(--gmn-accent)) brightness(1.4)}
+body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .TO:hover :is(a,span,.nU){color:#fff!important;text-shadow:0 0 12px var(--gmn-glow)}
+body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .TO:active{transform:perspective(700px) translateX(4px) translateZ(4px) scale(.98)!important}
+body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .TO.nZ{border-color:var(--gmn-accent)!important;background:linear-gradient(110deg,var(--gmn-accent),color-mix(in srgb,var(--gmn-accent) 40%,var(--gmn-panel)) 70%)!important;box-shadow:0 5px 0 color-mix(in srgb,var(--gmn-accent) 35%,#000),0 10px 24px #000a,0 0 26px var(--gmn-glow),inset 0 1px 0 #fff5!important;transform:perspective(700px) rotateY(-4deg) translateZ(10px) translateY(-2px)}
+body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .TO.nZ :is(a,span,.nU,.bsU){color:#fff!important;font-weight:700!important;text-shadow:0 1px 2px #0007}
+body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .TO.nZ .qj{filter:brightness(0) invert(1) drop-shadow(0 0 4px #fff)}
+body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .TO .bsU{color:var(--gmn-accent)!important;font-weight:700!important;background:color-mix(in srgb,var(--gmn-accent) 16%,transparent);border:1px solid color-mix(in srgb,var(--gmn-accent) 40%,transparent);border-radius:999px;padding:0 8px!important;line-height:20px!important;min-width:10px;text-align:center;transform:translateZ(12px)}
+body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .TO.nZ .bsU{background:#0004;border-color:#fff6}
+body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .aAw,body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .aAv{color:var(--gmn-muted)!important;letter-spacing:.12em}
+@media(prefers-reduced-motion:reduce){body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .TO,body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .TO *{transition:none!important;animation:none!important;transform:none!important}}
+
+/* Abas de categoria: sublinhado neon na ativa */
+body.gmn-theme [role=main] [role=tab]{transition:background-color .22s,color .22s!important;border-radius:10px 10px 0 0}
+body.gmn-theme [role=main] [role=tab]:hover{background:var(--gmn-soft)!important}
+body.gmn-theme [role=main] [role=tab][aria-selected=true]{background:var(--gmn-soft)!important;box-shadow:inset 0 -2px 0 var(--gmn-accent)!important}
+body.gmn-theme [role=main] [role=tab][aria-selected=true] *{color:var(--gmn-accent)!important}
+
+/* Estrela e caixas de seleção nas linhas */
+body.gmn-theme tr.zA [role=checkbox]:hover,body.gmn-theme tr.zA .T-KT:hover{filter:drop-shadow(0 0 5px var(--gmn-accent)) brightness(1.3)}
+
+/* Botões de texto da conversa (Responder, Encaminhar, sugestões, Resumir): pílulas neon */
+body.gmn-theme [role=main] .amn button,body.gmn-theme [role=main] .amn [role=button],
+body.gmn-theme [role=main] [role=toolbar][aria-label] button:not([aria-label]),
+body.gmn-theme [role=main] .DC5CAd button,body.gmn-theme [role=main] .DC5CAd [role=button]{background:color-mix(in srgb,var(--gmn-raised) 85%,transparent)!important;border:1px solid var(--gmn-accent)!important;border-radius:999px!important;color:var(--gmn-text)!important;box-shadow:0 0 10px color-mix(in srgb,var(--gmn-accent) 25%,transparent)!important;transition:transform .2s cubic-bezier(.16,1,.3,1),background .2s,box-shadow .2s,color .2s!important}
+body.gmn-theme [role=main] .amn button *,body.gmn-theme [role=main] .amn [role=button] *,body.gmn-theme [role=main] .DC5CAd button *,body.gmn-theme [role=main] .DC5CAd [role=button] *{color:inherit!important;opacity:1!important}
+body.gmn-theme [role=main] .amn button:hover,body.gmn-theme [role=main] .amn [role=button]:hover,
+body.gmn-theme [role=main] [role=toolbar][aria-label] button:not([aria-label]):hover,
+body.gmn-theme [role=main] .DC5CAd button:hover,body.gmn-theme [role=main] .DC5CAd [role=button]:hover{background:var(--gmn-accent)!important;color:var(--gmn-bg)!important;box-shadow:0 6px 22px var(--gmn-glow)!important;transform:translateY(-2px)}
+body.gmn-theme [role=main] .amn svg,body.gmn-theme [role=main] .DC5CAd svg{fill:currentColor!important}
+/* Ícones de ação por mensagem (estrela, reagir, responder, mais) */
+body.gmn-theme [role=main] [role=listitem] button[aria-label]:not(.amn *){border-radius:50%!important;transition:background-color .2s,box-shadow .2s!important}
+body.gmn-theme [role=main] [role=listitem] button[aria-label]:not(.amn *):hover{background:var(--gmn-soft)!important;box-shadow:0 0 12px var(--gmn-glow)!important}
+
+@media(prefers-reduced-motion:reduce){body.gmn-theme .T-I,body.gmn-theme .TO,.gmn-markread,body.gmn-theme [role=main] button{transition:none!important;transform:none!important}}
+
+
+/* Corretor automático de contraste (classes aplicadas pelo content.js) */
+body.gmn-theme .gmn-surface{background-color:var(--gmn-raised)!important;border-color:var(--gmn-line)!important}
+body.gmn-theme .gmn-ink{color:var(--gmn-text)!important}
+body.gmn-theme a.gmn-ink,body.gmn-theme .gmn-ink-link{color:var(--gmn-accent)!important}
+body.gmn-theme .gmn-ink-muted{color:var(--gmn-muted)!important}
+
+/* Compose: campos e corpo escuros com texto claro, título visível */
+body.gmn-theme .gmn-composer :is(input,textarea,[contenteditable=true]){background-color:transparent!important;color:var(--gmn-text)!important;caret-color:var(--gmn-accent)!important}
+body.gmn-theme .gmn-composer [contenteditable=true] *:not(img){background-color:transparent!important;color:inherit!important;border-color:var(--gmn-line)!important}
+body.gmn-theme .gmn-composer [contenteditable=true] a{color:var(--gmn-accent)!important}
+body.gmn-theme .gmn-composer :is(input,textarea)::placeholder{color:var(--gmn-muted)!important;opacity:1}
+body.gmn-theme .gmn-composer :is(h2,.aYF,[role=heading]){color:var(--gmn-text)!important;text-shadow:0 0 12px var(--gmn-glow)}
+body.gmn-theme .gmn-composer table,body.gmn-theme .gmn-composer td,body.gmn-theme .gmn-composer form{background-color:transparent!important}
+
+/* Campos nativos (selects das Configurações etc.) */
+body.gmn-theme select{background-color:var(--gmn-raised)!important;color:var(--gmn-text)!important;border:1px solid var(--gmn-line)!important;border-radius:7px!important}
+body.gmn-theme select option{background:var(--gmn-panel);color:var(--gmn-text)}
+body.gmn-theme .f1 .f0,body.gmn-theme .f1 a{transition:color .2s,box-shadow .2s}
+body.gmn-theme .f1 a:hover{color:var(--gmn-accent)!important;box-shadow:inset 0 -2px 0 var(--gmn-accent)}
+
+/* Menus detectados pelo content.js mesmo com estrutura diferente (Workspace, menus antigos) */
+body.gmn-theme .gmn-popup{background:var(--gmn-panel)!important;background-color:var(--gmn-panel)!important;color:var(--gmn-text)!important;opacity:1!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;border-color:var(--gmn-line)!important;border-radius:14px;box-shadow:0 18px 50px #000b,0 0 22px var(--gmn-glow)!important}
+body.gmn-theme .gmn-popup :is([role=menuitem],[role=option],.J-N,.goog-menuitem){color:var(--gmn-text)!important;background:transparent!important}
+body.gmn-theme .gmn-popup :is([role=menuitem],[role=option],.J-N,.goog-menuitem):is(:hover,.J-N-JT,.goog-menuitem-highlight,[aria-selected=true]){background:var(--gmn-soft)!important;color:var(--gmn-accent)!important}
+body.gmn-theme :is(.SK,.goog-menu,.goog-popupmenu){background:var(--gmn-panel)!important;color:var(--gmn-text)!important;border:1px solid var(--gmn-line)!important;border-radius:14px!important}
+body.gmn-theme :is(.SK,.goog-menu) :is(.J-N,.goog-menuitem,.goog-menuitem-content){color:var(--gmn-text)!important}
+
+/* Faixa de apps do Workspace (Mail / Chat / Meet) à esquerda do menu */
+body.gmn-theme [role=navigation] .V6{border-radius:14px!important;background:transparent!important;transition:transform .28s cubic-bezier(.16,1,.3,1),background .25s,box-shadow .25s!important;transform:perspective(500px) translateZ(0)}
+body.gmn-theme [role=navigation] .V6 :is(span,div){color:var(--gmn-text)!important}
+body.gmn-theme [role=navigation] .V6:hover{background:var(--gmn-soft)!important;box-shadow:0 8px 20px #0009,0 0 16px var(--gmn-glow)!important;transform:perspective(500px) rotateX(10deg) translateY(-3px) translateZ(14px)}
+body.gmn-theme [role=navigation] .V6.W9,body.gmn-theme [role=navigation] .V6[aria-current],body.gmn-theme [role=navigation] .V6.gmn-surface{background:linear-gradient(140deg,var(--gmn-soft2),transparent)!important;box-shadow:inset 0 0 0 1px var(--gmn-accent),0 0 16px var(--gmn-glow)!important}
+body.gmn-theme [role=navigation] .V6:hover :is(svg,img,.aqx,.aTq){filter:drop-shadow(0 0 5px var(--gmn-accent)) brightness(1.3)}
+
+/* Hover 3D que segue o mouse + degradê de luz no ponto do cursor (classes do content.js) */
+body.gmn-theme .gmn-follow{transform:perspective(600px) rotateX(var(--gmn-rx,0deg)) rotateY(var(--gmn-ry,0deg)) translateZ(14px)!important;transition:transform .08s linear,background .2s,border-color .2s,box-shadow .2s!important;will-change:transform;transform-style:preserve-3d}
+body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .TO.gmn-follow{transform:perspective(600px) rotateX(var(--gmn-rx,0deg)) rotateY(var(--gmn-ry,0deg)) translateX(5px) translateZ(18px)!important}
+body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .TO.nZ.gmn-follow{transform:perspective(600px) rotateX(var(--gmn-rx,0deg)) rotateY(var(--gmn-ry,0deg)) translateY(-2px) translateZ(22px)!important}
+body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .TO:hover{background:color-mix(in srgb,var(--gmn-raised) 85%,transparent)!important}
+body.gmn-theme :is([role=navigation],.Ls77Lb,.nM) .TO.nZ:hover{background:linear-gradient(110deg,var(--gmn-accent),color-mix(in srgb,var(--gmn-accent) 40%,var(--gmn-panel)) 70%)!important}
+.gmn-spot{position:absolute;inset:0;z-index:1;border-radius:inherit;pointer-events:none;overflow:hidden;background:radial-gradient(circle 70px at var(--gmn-x,50%) var(--gmn-y,50%),color-mix(in srgb,var(--gmn-accent,#bd77ff) 60%,transparent),color-mix(in srgb,var(--gmn-accent,#bd77ff) 18%,transparent) 45%,transparent 75%);mix-blend-mode:screen;animation:gmnSpotIn .18s ease-out}
+.gmn-markread .gmn-spot,.T-I .gmn-spot{background:radial-gradient(circle 40px at var(--gmn-x,50%) var(--gmn-y,50%),#ffffff66,color-mix(in srgb,var(--gmn-accent,#bd77ff) 30%,transparent) 50%,transparent 80%)}
+@keyframes gmnSpotIn{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){body.gmn-theme .gmn-follow{transform:none!important}.gmn-spot{animation:none}}
+
+/* Painel da conversa aberta acompanhando o mouse em 3D (sutil, para não atrapalhar a leitura) */
+body.gmn-theme .gmn-panel3d{transform:perspective(2200px) rotateX(var(--gmn-prx,0deg)) rotateY(var(--gmn-pry,0deg));transform-origin:50% var(--gmn-poy,50%);transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s;border-radius:16px;box-shadow:0 24px 60px #0008,0 0 0 1px color-mix(in srgb,var(--gmn-accent) 22%,transparent),0 0 34px color-mix(in srgb,var(--gmn-accent) 18%,transparent)!important;background-image:radial-gradient(circle 460px at var(--gmn-px,50%) var(--gmn-py,30%),color-mix(in srgb,var(--gmn-accent) 11%,transparent),transparent 70%)!important}
+@media(prefers-reduced-motion:reduce){body.gmn-theme .gmn-panel3d{transform:none;transition:none}}
+
+/* Rodapé do compose: ícones brancos animados + Enviar e seta num botão só */
+body.gmn-theme :is(.btC,.gmn-composer) :is(.J-Z-I,.wG,.oh,.Xv),body.gmn-theme :is(.btC,.gmn-composer) :is(.J-Z-I,.wG,.oh,.Xv) *{background-color:transparent!important;border-color:transparent!important;box-shadow:none!important}
+body.gmn-theme :is(.btC,.gmn-composer) :is(.J-Z-I,.wG,.oh,.Xv){filter:brightness(0) invert(1)!important;opacity:.82;border-radius:9px!important;transition:transform .25s cubic-bezier(.34,1.56,.64,1),opacity .2s,filter .2s,background-color .2s!important}
+body.gmn-theme :is(.btC,.gmn-composer) :is(.J-Z-I,.wG,.oh,.Xv):hover{opacity:1;transform:translateY(-4px) scale(1.22) rotate(-6deg);filter:brightness(0) invert(1) drop-shadow(0 0 6px var(--gmn-accent)) drop-shadow(0 0 2px #fff)!important}
+body.gmn-theme :is(.btC,.gmn-composer) :is(.J-Z-I,.wG,.oh,.Xv):active{transform:translateY(0) scale(.9);transition-duration:.08s!important}
+body.gmn-theme :is(.btC,.gmn-composer) .oh:hover{transform:translateY(-3px) scale(1.2) rotate(8deg)}
+body.gmn-theme :is(.btC,.gmn-composer) :is(.J-Z-I,.wG,.Xv).J-Z-I-JO,body.gmn-theme :is(.btC,.gmn-composer) :is(.J-Z-I,.wG)[aria-pressed=true]{opacity:1;filter:brightness(0) invert(1) drop-shadow(0 0 5px var(--gmn-accent))!important}
+/* Entrada escalonada dos ícones quando o compose abre */
+body.gmn-compose-on .gmn-composer :is(.J-Z-I,.wG,.oh,.Xv){animation:gmnIconIn .5s cubic-bezier(.34,1.56,.64,1) both}
+body.gmn-compose-on .gmn-composer .wG:nth-of-type(2){animation-delay:.04s}
+body.gmn-compose-on .gmn-composer .wG:nth-of-type(3){animation-delay:.08s}
+body.gmn-compose-on .gmn-composer .wG:nth-of-type(4){animation-delay:.12s}
+body.gmn-compose-on .gmn-composer .wG:nth-of-type(5){animation-delay:.16s}
+body.gmn-compose-on .gmn-composer .wG:nth-of-type(6){animation-delay:.2s}
+body.gmn-compose-on .gmn-composer .wG:nth-of-type(7){animation-delay:.24s}
+body.gmn-compose-on .gmn-composer .wG:nth-of-type(8){animation-delay:.28s}
+body.gmn-compose-on .gmn-composer :is(.Xv,.oh){animation-delay:.32s}
+@keyframes gmnIconIn{from{opacity:0;transform:translateY(14px) scale(.4) rotate(-20deg)}to{opacity:.82;transform:none}}
+/* Enviar + seta: gradiente neon, texto branco, brilho que passa no hover */
+body.gmn-theme :is(.btC,.gmn-composer) .T-I.aoO,body.gmn-theme :is(.btC,.gmn-composer) .T-I.hG{background:linear-gradient(120deg,var(--gmn-accent),color-mix(in srgb,var(--gmn-accent) 60%,#000))!important;color:#fff!important;border:0!important;font-weight:700!important;letter-spacing:.02em;text-shadow:0 1px 2px #0006;box-shadow:0 0 18px var(--gmn-glow),inset 0 1px 0 #fff6!important;position:relative;overflow:hidden;transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,filter .2s!important}
+body.gmn-theme :is(.btC,.gmn-composer) .T-I.aoO{border-radius:12px 0 0 12px!important;padding-right:18px!important}
+body.gmn-theme :is(.btC,.gmn-composer) .T-I.hG{border-radius:0 12px 12px 0!important;border-left:1px solid #ffffff55!important;background:linear-gradient(120deg,color-mix(in srgb,var(--gmn-accent) 72%,#000),color-mix(in srgb,var(--gmn-accent) 45%,#000))!important}
+body.gmn-theme :is(.btC,.gmn-composer) .T-I.hG .G-asx{filter:brightness(0) invert(1)!important;transition:transform .25s}
+body.gmn-theme :is(.btC,.gmn-composer) .T-I.hG:hover .G-asx{transform:translateY(2px)}
+body.gmn-theme :is(.btC,.gmn-composer) .T-I.aoO::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,#ffffff70 48%,transparent 66%);transform:translateX(-120%);pointer-events:none}
+body.gmn-theme :is(.btC,.gmn-composer) .T-I.aoO:hover::after{animation:gmnSendShine .7s ease-out}
+body.gmn-theme :is(.btC,.gmn-composer) :is(.T-I.aoO,.T-I.hG):hover{transform:translateY(-3px);box-shadow:0 8px 26px var(--gmn-glow),0 0 30px var(--gmn-glow),inset 0 1px 0 #fff8!important;filter:brightness(1.08)}
+body.gmn-theme :is(.btC,.gmn-composer) :is(.T-I.aoO,.T-I.hG):active{transform:translateY(0) scale(.96)}
+body.gmn-compose-on .gmn-composer .T-I.aoO{animation:gmnSendPulse 2.6s ease-in-out 1s infinite}
+@keyframes gmnSendShine{to{transform:translateX(120%)}}
+@keyframes gmnSendPulse{0%,100%{box-shadow:0 0 14px var(--gmn-glow),inset 0 1px 0 #fff6}50%{box-shadow:0 0 28px var(--gmn-glow),0 0 6px #fff4,inset 0 1px 0 #fff6}}
+@media(prefers-reduced-motion:reduce){body.gmn-theme :is(.btC,.gmn-composer) *{animation:none!important;transition:none!important}}
+body.gmn-theme :is(.btC,.gmn-composer) .J-Z-I:is(.J-Z-I-KO,.J-Z-I-JO,.J-Z-I-JW,.J-Z-I-JT){background-image:none!important}
+body.gmn-theme :is(.btC,.gmn-composer) :is(.J-Z-I,.wG,.oh,.Xv)::before,body.gmn-theme :is(.btC,.gmn-composer) :is(.J-Z-I,.wG,.oh,.Xv)::after{background:transparent!important;box-shadow:none!important}

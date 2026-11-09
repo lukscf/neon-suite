@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YT Neon</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <a href="../../popup.html?home=1" style="display:block;padding:6px 14px;font:600 11px system-ui,sans-serif;color:#c9a6ff;text-decoration:none;background:#0b0611;border-bottom:1px solid #2a1c3a">← Neon Suite: todos os sites</a>
+  <header><span class="spark">▶</span><div><strong>YT NEON</strong><small>YOUTUBE TURBINADO</small></div></header>
+  <main>
+    <button type="button" id="float" class="float-btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 7h-8v6h8zm2-4H3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm0 16H3V5h18z"/></svg>Player flutuante (sempre por cima)</button>
+
+    <div class="actions" id="actions" aria-label="Ações no vídeo aberto">
+      <div class="speed">
+        <button type="button" data-action="speedDown" title="Desacelerar" aria-label="Desacelerar">−</button>
+        <output id="speed" title="Velocidade atual">1x</output>
+        <button type="button" data-action="speedUp" title="Acelerar" aria-label="Acelerar">+</button>
+      </div>
+      <button type="button" data-action="loop" title="Repetir o vídeo">Loop</button>
+      <button type="button" data-action="abLoop" title="Loop A-B: marca A, marca B, desliga">A-B</button>
+      <button type="button" data-action="screenshot" title="Salvar o frame atual em PNG">Capturar</button>
+      <button type="button" data-action="focus" title="Modo foco">Foco</button>
+    </div>
+    <p id="video-state" class="hint"></p>
+
+    <div id="settings"></div>
+
+    <p id="status" role="status" aria-live="polite"></p>
+    <p class="links"><a href="#" id="options">Atalhos, exportar/importar e todas as opções</a></p>
+    <p id="diag" class="hint"></p>
+  </main>
+  <script src="../../ns.js"></script>
+  <script src="settings.js"></script>
+  <script src="form.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

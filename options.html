@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Neon Suite: opções</title>
+  <link rel="stylesheet" href="suite.css">
+</head>
+<body class="options">
+  <header><img src="icons/icon48.png" alt="" width="36" height="36"><div><strong>NEON SUITE</strong><small>OPÇÕES E BACKUP</small></div></header>
+  <main>
+    <section class="panel" aria-labelledby="h-sites">
+      <h2 id="h-sites">Menus de cada site</h2>
+      <p class="hint">O menu de cada site também abre sozinho pelo ícone da barra quando você está nele.</p>
+      <div class="row-btns">
+        <a class="btn" href="sites/gmail/popup.html?home=1">Gmail</a>
+        <a class="btn" href="sites/whatsapp/popup.html?home=1">WhatsApp</a>
+        <a class="btn" href="sites/slack/popup.html?home=1">Slack</a>
+        <a class="btn" href="sites/youtube/popup.html?home=1">YouTube</a>
+        <a class="btn" href="sites/youtube/options.html">YouTube: atalhos e opções avançadas</a>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="h-backup">
+      <h2 id="h-backup">Backup de tudo</h2>
+      <p class="hint">Exporta as preferências dos quatro sites num arquivo .json. Ficam de fora as posições salvas dos vídeos e as transcrições guardadas.</p>
+      <div class="row-btns">
+        <button type="button" class="btn" id="export">Exportar (.json)</button>
+        <button type="button" class="btn" id="import">Importar…</button>
+        <input type="file" id="file" accept="application/json,.json" hidden>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="h-reset">
+      <h2 id="h-reset">Restaurar padrão</h2>
+      <div class="row-btns">
+        <button type="button" class="btn" data-reset="gmail">Gmail</button>
+        <button type="button" class="btn" data-reset="whatsapp">WhatsApp</button>
+        <button type="button" class="btn" data-reset="slack">Slack</button>
+        <button type="button" class="btn" data-reset="youtube">YouTube</button>
+      </div>
+    </section>
+    <p id="status" role="status" aria-live="polite"></p>
+  </main>
+  <script src="ns.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Neon Suite</title>
+  <link rel="stylesheet" href="suite.css">
+</head>
+<body>
+  <div id="home" hidden>
+    <header><img src="icons/icon48.png" alt="" width="32" height="32"><div><strong>NEON SUITE</strong><small>GMAIL · WHATSAPP · SLACK · YOUTUBE</small></div></header>
+    <main>
+      <p class="hint" id="where">Abra um dos sites para ver o menu dele, ou escolha abaixo.</p>
+      <nav class="sites" aria-label="Sites">
+        <a class="site" data-site="gmail" href="sites/gmail/popup.html?home=1"><img src="sites/gmail/icons/icon48.png" alt=""><span><b>Gmail</b><small>Tema, fundos, marcar como lido, modo discreto</small></span></a>
+        <a class="site" data-site="whatsapp" href="sites/whatsapp/popup.html?home=1"><img src="sites/whatsapp/icons/icon48.png" alt=""><span><b>WhatsApp</b><small>Transcrição de áudio local, tema e fundos</small></span></a>
+        <a class="site" data-site="slack" href="sites/slack/popup.html?home=1"><img src="sites/slack/icons/icon48.png" alt=""><span><b>Slack</b><small>Tema, fontes, avisos neon de mensagens</small></span></a>
+        <a class="site" data-site="youtube" href="sites/youtube/popup.html?home=1"><img src="sites/youtube/icons/icon48.png" alt=""><span><b>YouTube</b><small>Player flutuante, velocidade, volume, foco</small></span></a>
+      </nav>
+
+      <h2>Cor em todos os sites</h2>
+      <div class="colors" role="group" aria-label="Cor em todos os sites">
+        <button type="button" data-color="purple" title="Roxo" aria-label="Roxo" style="--dot:#bd77ff"></button>
+        <button type="button" data-color="blue" title="Azul" aria-label="Azul" style="--dot:#5c9dff"></button>
+        <button type="button" data-color="pink" title="Rosa" aria-label="Rosa" style="--dot:#ff74bb"></button>
+        <button type="button" data-color="cyan" title="Ciano" aria-label="Ciano" style="--dot:#4fe0db"></button>
+        <button type="button" data-color="green" title="Verde" aria-label="Verde" style="--dot:#75df95"></button>
+        <button type="button" data-color="bullet" class="bullet" title="Bullet" aria-label="Bullet" style="--dot:#C2F141"></button>
+      </div>
+      <p class="hint">Cada site continua podendo ter a sua cor no menu dele.</p>
+      <p id="status" role="status" aria-live="polite"></p>
+      <p class="links"><a href="#" id="options">Opções, backup e atalhos</a></p>
+    </main>
+  </div>
+  <script src="ns.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

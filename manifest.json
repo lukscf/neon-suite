@@ -1,0 +1,171 @@
+{
+  "manifest_version": 3,
+  "name": "Neon Suite: Gmail, WhatsApp, Slack e YouTube",
+  "version": "1.0.0",
+  "description": "Tema neon e recursos extras para Gmail, WhatsApp Web, Slack e YouTube numa extensão só. O menu abre conforme o site.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "unlimitedStorage",
+    "offscreen",
+    "notifications",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://mail.google.com/mail/*",
+    "https://web.whatsapp.com/*",
+    "https://app.slack.com/*",
+    "https://www.youtube.com/*"
+  ],
+  "action": {
+    "default_title": "Neon Suite",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "toggle-float": {
+      "suggested_key": {
+        "default": "Alt+Shift+Y"
+      },
+      "description": "Abrir ou fechar o player flutuante"
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://mail.google.com/mail/*"
+      ],
+      "js": [
+        "ns.js",
+        "bullet-fx.js",
+        "sites/gmail/content.js"
+      ],
+      "css": [
+        "sites/gmail/theme.css",
+        "sites/gmail/effects.css",
+        "sites/gmail/ui.css",
+        "sites/gmail/bullet.css"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://web.whatsapp.com/*"
+      ],
+      "js": [
+        "sites/whatsapp/inject.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://web.whatsapp.com/*"
+      ],
+      "js": [
+        "ns.js",
+        "bullet-fx.js",
+        "sites/whatsapp/content.js",
+        "sites/whatsapp/fx.js"
+      ],
+      "css": [
+        "sites/whatsapp/theme.css",
+        "sites/whatsapp/fx.css"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://app.slack.com/*"
+      ],
+      "js": [
+        "sites/slack/notify-main.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://app.slack.com/*"
+      ],
+      "js": [
+        "ns.js",
+        "bullet-fx.js",
+        "sites/slack/notify.js",
+        "sites/slack/content.js"
+      ],
+      "css": [
+        "sites/slack/theme.css",
+        "sites/slack/effects.css",
+        "sites/slack/fonts.css",
+        "sites/slack/bullet.css",
+        "sites/slack/notify.css"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "sites/youtube/main.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "ns.js",
+        "sites/youtube/settings.js",
+        "bullet-fx.js",
+        "sites/youtube/float.js",
+        "sites/youtube/player.js",
+        "sites/youtube/content.js"
+      ],
+      "css": [
+        "sites/youtube/theme.css",
+        "sites/youtube/effects.css",
+        "sites/youtube/fonts.css",
+        "sites/youtube/ui.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "fonts/*.woff2"
+      ],
+      "matches": [
+        "https://mail.google.com/*",
+        "https://web.whatsapp.com/*",
+        "https://app.slack.com/*",
+        "https://www.youtube.com/*"
+      ]
+    }
+  ]
+}

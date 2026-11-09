@@ -1,0 +1,26 @@
+body.gmn-theme{--gmn-bg:#100b1a;--gmn-panel:#1a1029;--gmn-raised:#251736;--gmn-line:#473159;--gmn-text:#f2eaff;--gmn-muted:#bdafce;--gmn-panel2:#20142f;--gmn-accent:#bd77ff;--gmn-glow:#bd77ff66;background:var(--gmn-bg)!important;color:var(--gmn-text)!important}
+body.gmn-theme[data-gmn-color=blue]{--gmn-accent:#5c9dff;--gmn-glow:#5c9dff66;--gmn-bg:#090f18;--gmn-panel:#0f1827;--gmn-raised:#182337;--gmn-line:#303f5a;--gmn-text:#ebf2ff;--gmn-muted:#b4becf;--gmn-panel2:#141e2e}
+body.gmn-theme[data-gmn-color=pink]{--gmn-accent:#ff74bb;--gmn-glow:#ff74bb66;--gmn-bg:#180911;--gmn-panel:#270f1b;--gmn-raised:#371828;--gmn-line:#5a3045;--gmn-text:#ffebf5;--gmn-muted:#cfb4c2;--gmn-panel2:#2e1421}
+body.gmn-theme[data-gmn-color=cyan]{--gmn-accent:#4fe0db;--gmn-glow:#4fe0db66;--gmn-bg:#091818;--gmn-panel:#0f2726;--gmn-raised:#183736;--gmn-line:#305a58;--gmn-text:#ebfffe;--gmn-muted:#b4cfce;--gmn-panel2:#142e2e}
+body.gmn-theme[data-gmn-color=green]{--gmn-accent:#75df95;--gmn-glow:#75df9566;--gmn-bg:#09180e;--gmn-panel:#0f2717;--gmn-raised:#183722;--gmn-line:#305a3e;--gmn-text:#ebfff1;--gmn-muted:#b4cfbd;--gmn-panel2:#142e1d}
+body.gmn-theme #gb,body.gmn-theme .aeF,body.gmn-theme .nH,body.gmn-theme .bkK,body.gmn-theme .bkL{background-color:var(--gmn-bg)!important;color:var(--gmn-text)!important}
+body.gmn-theme [role=main],body.gmn-theme [role=navigation]{background-color:transparent!important;color:var(--gmn-text)!important}
+body.gmn-theme .G-atb,body.gmn-theme .bq9,body.gmn-theme .aKh,body.gmn-theme .aAy,body.gmn-theme [role=toolbar]{background-color:var(--gmn-panel)!important;color:var(--gmn-text)!important;border-color:var(--gmn-line)!important}
+body.gmn-theme tr.zA{background-color:color-mix(in srgb,var(--gmn-panel) 92%,transparent)!important;color:var(--gmn-text)!important;border-color:var(--gmn-line)!important;transition:background-color .2s,box-shadow .2s,transform .16s ease;transform-style:preserve-3d}
+body.gmn-theme tr.zA.zE{background-color:var(--gmn-raised)!important}
+body.gmn-theme tr.zA:hover,body.gmn-theme tr.zA.gmn-tilting{background:radial-gradient(circle at var(--gmn-x,50%) var(--gmn-y,50%),var(--gmn-glow),var(--gmn-panel) 72%)!important;box-shadow:0 8px 22px #0009,0 0 15px var(--gmn-glow)!important;position:relative;z-index:4}
+body.gmn-theme tr.zA.gmn-tilting .y6,body.gmn-theme tr.zA.gmn-tilting .yW,body.gmn-theme tr.zA.gmn-tilting .xW{transform:translateZ(12px)}
+body.gmn-theme tr.zA .y6,body.gmn-theme tr.zA .yW,body.gmn-theme tr.zA .xW,body.gmn-theme tr.zA .zF,body.gmn-theme tr.zA .yP{color:var(--gmn-text)!important}
+body.gmn-theme tr.zA .y2,body.gmn-theme tr.zA .Zt,body.gmn-theme tr.zA .yW span{color:var(--gmn-muted)!important}
+body.gmn-theme a,body.gmn-theme [role=link]{color:var(--gmn-accent)}
+body.gmn-theme [role=dialog]{background-color:var(--gmn-panel)!important;color:var(--gmn-text)!important;border:1px solid var(--gmn-accent)!important;box-shadow:0 0 30px var(--gmn-glow)!important}
+body.gmn-theme input,body.gmn-theme textarea,body.gmn-theme [contenteditable=true]{color:var(--gmn-text)!important}
+body.gmn-theme .gmn-composer{transform-origin:85% 100%}
+body.gmn-compose-on .gmn-composer{animation:gmnComposeOpen .45s cubic-bezier(.16,1,.3,1) both}
+body.gmn-compose-on .gmn-composer [role=button]:hover{filter:brightness(1.12)}
+.gmn-send-spark{position:fixed;z-index:2147483646;pointer-events:none;color:var(--gmn-accent,#bd77ff);font-size:31px;text-shadow:0 0 18px currentColor;animation:gmnSendFly .95s cubic-bezier(.45,0,.6,.3) forwards}
+body.gmn-privacy tr.zA .y6,body.gmn-privacy tr.zA .yW,body.gmn-privacy tr.zA .zF,body.gmn-privacy tr.zA .y2,body.gmn-privacy [role=main] .ii.gt{filter:blur(6px);transition:filter .15s}
+body.gmn-privacy tr.zA:hover .y6,body.gmn-privacy tr.zA:hover .yW,body.gmn-privacy tr.zA:hover .zF,body.gmn-privacy tr.zA:hover .y2,body.gmn-privacy [role=main] .ii.gt:hover{filter:none}
+@keyframes gmnComposeOpen{from{opacity:0;transform:translateY(80px) scale(.86) rotateX(-10deg)}to{opacity:1;transform:translateY(0) scale(1) rotateX(0)}}
+@keyframes gmnSendFly{0%{opacity:1;transform:translate(0,0) scale(1) rotate(0)}100%{opacity:0;transform:translate(55vw,-85vh) scale(.15) rotate(30deg)}}
+@media(prefers-reduced-motion:reduce){body.gmn-theme tr.zA,body.gmn-compose-on .gmn-composer,.gmn-send-spark{animation:none!important;transition:none!important}}
