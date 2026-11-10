@@ -3,7 +3,7 @@
 **Resumo: a extensão não coleta nem envia dados seus.** Não tem servidor, conta, analytics nem telemetria.
 
 ## Onde ela roda
-Só em `mail.google.com`, `web.whatsapp.com`, `app.slack.com`, `www.youtube.com` e `www.primevideo.com`.
+Só em `mail.google.com`, `web.whatsapp.com`, `app.slack.com`, `www.youtube.com`, `www.primevideo.com` e `pluto.tv`.
 
 ## O que ela lê e por quê
 | Site | O que é lido | Para quê |
@@ -13,6 +13,7 @@ Só em `mail.google.com`, `web.whatsapp.com`, `app.slack.com`, `www.youtube.com`
 | WhatsApp | O áudio que você manda transcrever | Transcrição feita **no seu PC** pelo Whisper local; o áudio não sai do computador |
 | Slack | Título, texto e foto das notificações que o Slack já ia mostrar | Montar o aviso neon ou o aviso do Windows; não é guardado nem registrado |
 | Prime Video | O vídeo do player e os botões que o próprio Prime mostra (pular abertura, próximo episódio) | Player flutuante, velocidade, volume e, se ligado, apertar esses botões; nada é guardado |
+| Pluto TV | O vídeo do player, o texto da legenda que o Pluto mostra e o botão "Pular" | Player flutuante (com a legenda), velocidade, volume e, se ligado, apertar o "Pular"; nada é guardado |
 | YouTube | O vídeo da página, o código do vídeo e o endereço do canal | Player flutuante, velocidade, loops, captura, retomar de onde parou e velocidade por canal |
 
 ## O que fica guardado
@@ -32,6 +33,6 @@ Só uma: na primeira transcrição do WhatsApp, o modelo Whisper é baixado do H
 - **`notifications`:** o aviso do Windows das mensagens do Slack.
 - **`scripting`:** o atalho global e o popup abrem o player flutuante do YouTube.
 - **`activeTab`:** o popup confere se a extensão está ativa na aba aberta.
-- **Acesso aos cinco sites:** aplicar o tema e os recursos só neles.
+- **Acesso aos seis sites:** aplicar o tema e os recursos só neles.
 
-Projeto independente. Gmail e YouTube são marcas do Google LLC, WhatsApp da Meta, Slack da Slack Technologies, LLC e Prime Video da Amazon.com, Inc.
+Projeto independente. Gmail e YouTube são marcas do Google LLC, WhatsApp da Meta, Slack da Slack Technologies, LLC Prime Video da Amazon.com, Inc. e Pluto TV da Paramount.

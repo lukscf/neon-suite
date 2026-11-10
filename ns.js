@@ -10,7 +10,8 @@
     "web.whatsapp.com": "whatsapp",
     "app.slack.com": "slack",
     "www.youtube.com": "youtube",
-    "www.primevideo.com": "prime"
+    "www.primevideo.com": "prime",
+    "pluto.tv": "pluto"
   };
   const siteOfUrl = (url) => {
     try { return SITES[new URL(url).hostname] || null; } catch { return null; }

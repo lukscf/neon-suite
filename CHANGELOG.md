@@ -1,5 +1,13 @@
 # Histórico
 
+## 1.2.0
+- **Pluto TV**, o sexto site da Suite. O menu, o ícone e as preferências são próprios.
+  - **Tema neon** com 6 cores, incluindo Bullet. O amarelo do Pluto vira a cor do tema, o guia de canais e o menu brilham e inclinam com o mouse, e há fundo animado atrás do conteúdo.
+  - **Player flutuante sempre por cima:** testado com o DRM do Pluto, a imagem aparece. A legenda do Pluto também vai para a janela, e há os modos completo e mínimo.
+  - **Volume extra até 400%**, normalização e roda do mouse no volume.
+  - **Velocidade** de 0,25x a 4x em filmes e séries. Na TV ao vivo ela fica em 1x, para não sair do sinal ao vivo.
+  - **Opcional:** apertar sozinho o "Pular" do próprio Pluto (abertura e recapitulação). Nunca age durante anúncios.
+
 ## 1.1.1
 - **Prime Video: legenda na janela flutuante.** O Prime desenha a legenda numa camada da página, fora do vídeo. Agora o texto é copiado em tempo real para a janela flutuante (modo completo), com fundo escuro e tamanho proporcional à janela. A legenda sobe quando os controles aparecem. Para ligar e desligar, use o botão de legendas do próprio Prime.
 

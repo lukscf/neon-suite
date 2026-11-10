@@ -1,0 +1,74 @@
+#pln-fx{position:fixed;inset:40px 0 0 330px;z-index:2;pointer-events:none;overflow:hidden;opacity:.22;mix-blend-mode:screen;--pln-accent:#bd77ff;--pln-glow:#bd77ff66}
+html[data-pln-color=blue] #pln-fx{--pln-accent:#5c9dff;--pln-glow:#5c9dff66}
+html[data-pln-color=pink] #pln-fx{--pln-accent:#ff74bb;--pln-glow:#ff74bb66}
+html[data-pln-color=cyan] #pln-fx{--pln-accent:#4fe0db;--pln-glow:#4fe0db66}
+html[data-pln-color=green] #pln-fx{--pln-accent:#75df95;--pln-glow:#75df9566}
+html[data-pln-bg=none] #pln-fx{display:none}
+#pln-fx .pln-fx-shape,#pln-fx .pln-fx-particles{position:absolute;inset:0}
+#pln-fx .pln-fx-particles span{position:absolute;display:none;left:var(--x);top:var(--y);animation-delay:var(--d)}
+html[data-pln-bg=aurora] #pln-fx{background:radial-gradient(ellipse at 50% 10%,var(--pln-glow),transparent 60%)}
+html[data-pln-bg=aurora] #pln-fx .pln-fx-shape{width:60vw;height:60vh;left:10%;top:-20%;border-radius:50%;background:radial-gradient(circle,var(--pln-accent),transparent 65%);filter:blur(35px);animation:plnAurora 12s ease-in-out infinite alternate}
+html[data-pln-bg=stars] #pln-fx .pln-fx-particles span,html[data-pln-bg=orbit] #pln-fx .pln-fx-particles span{display:block;width:var(--s);height:var(--s);border-radius:50%;background:var(--pln-accent);font-size:0;box-shadow:0 0 9px var(--pln-accent);animation:plnTwinkle 2.7s ease-in-out infinite alternate}
+html[data-pln-bg=matrix] #pln-fx .pln-fx-particles span{display:block;top:-20%;font:700 21px monospace;color:#70ff9e;text-shadow:0 0 9px #50ff80;animation:plnFall calc(4s + var(--i)*.12s) linear infinite;animation-delay:calc(var(--d)*-1)}
+html[data-pln-bg=synthwave] #pln-fx{opacity:.3;background:linear-gradient(transparent 48%,#b93c8a44 55%,transparent 65%)}
+html[data-pln-bg=synthwave] #pln-fx .pln-fx-shape:before{content:"";position:absolute;width:210px;height:210px;left:calc(50% - 105px);top:12%;border-radius:50%;background:linear-gradient(#ff88cd,#ff5277 62%,transparent 63%);box-shadow:0 0 30px #ff5aa988;animation:plnSun 5s ease-in-out infinite alternate}
+html[data-pln-bg=synthwave] #pln-fx .pln-fx-shape:after{content:"";position:absolute;left:-20%;right:-20%;bottom:-45%;height:85%;transform:perspective(500px) rotateX(62deg);transform-origin:top;background:repeating-linear-gradient(0deg,transparent 0 25px,#ff57c2 26px 27px),repeating-linear-gradient(90deg,transparent 0 50px,#ff57c2 51px 52px);animation:plnGrid 5s linear infinite}
+html[data-pln-bg=bokeh] #pln-fx .pln-fx-particles span{display:block;width:calc(var(--s)*3);height:calc(var(--s)*3);border-radius:50%;border:1px solid var(--pln-accent);background:var(--pln-glow);font-size:0;animation:plnFloat calc(5s + var(--i)*.2s) ease-in-out infinite alternate}
+html[data-pln-bg=warp] #pln-fx .pln-fx-particles span{display:block;left:50%;top:50%;width:calc(var(--s)*4);height:2px;background:var(--pln-accent);box-shadow:0 0 8px var(--pln-accent);font-size:0;animation:plnWarp 2s linear infinite;animation-delay:calc(var(--d)*-.3)}
+html[data-pln-bg=rain] #pln-fx .pln-fx-particles span{display:block;top:-20%;width:2px;height:calc(var(--s)*8);background:linear-gradient(transparent,var(--pln-accent));box-shadow:0 0 7px var(--pln-accent);font-size:0;animation:plnFall 2s linear infinite;animation-delay:calc(var(--d)*-.5)}
+html[data-pln-bg=fireflies] #pln-fx .pln-fx-particles span{display:block;width:5px;height:5px;border-radius:50%;background:#eaff9a;box-shadow:0 0 9px 3px #d7ff72;font-size:0;animation:plnFloat calc(3s + var(--i)*.15s) ease-in-out infinite alternate}
+html[data-pln-bg=orbit] #pln-fx .pln-fx-shape{width:490px;height:490px;left:calc(50% - 245px);top:calc(50% - 245px);border:1px solid var(--pln-accent);border-radius:50%;box-shadow:0 0 20px var(--pln-glow);animation:plnOrbit 13s linear infinite}
+html[data-pln-bg=orbit] #pln-fx .pln-fx-shape:before,html[data-pln-bg=orbit] #pln-fx .pln-fx-shape:after{content:"";position:absolute;inset:55px;border:1px solid var(--pln-accent);border-radius:50%;transform:rotateX(65deg)}
+html[data-pln-bg=orbit] #pln-fx .pln-fx-shape:after{inset:110px;transform:rotateY(65deg)}
+@keyframes plnAurora{to{transform:translate(25%,20%) scale(1.3)}}@keyframes plnTwinkle{from{opacity:.15;transform:scale(.5)}to{opacity:1;transform:scale(1.3)}}@keyframes plnFall{to{transform:translateY(140vh)}}@keyframes plnSun{to{filter:brightness(1.4);transform:scale(1.05)}}@keyframes plnGrid{to{background-position:0 60px,60px 0}}@keyframes plnFloat{to{transform:translate(25px,-75px);opacity:.15}}@keyframes plnWarp{from{opacity:0;transform:rotate(calc(var(--i)*16deg)) translateX(20px) scaleX(.3)}to{opacity:1;transform:rotate(calc(var(--i)*16deg)) translateX(60vw) scaleX(2)}}@keyframes plnOrbit{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){#pln-fx *{animation:none!important}}
+
+/* ---------- Pluto: o fundo fica atrás do conteúdo ---------- */
+#pln-fx{inset:0!important;z-index:-1;opacity:.5;--pln-accent:#bd77ff;--pln-glow:#bd77ff66}
+html:not(.pln-theme) #pln-fx,html[data-pln-bg=none] #pln-fx{display:none}
+html[data-pln-bg=synthwave] #pln-fx{opacity:.55}
+html[data-pln-bg=bullet] #pln-fx{opacity:.75;mix-blend-mode:normal;background:none}
+html[data-pln-bg=bullet] #pln-fx :is(.pln-fx-shape,.pln-fx-particles){display:none}
+html.pln-theme:not([data-pln-bg=none]) body{background:transparent!important}
+html.pln-theme:not([data-pln-bg=none]){background:var(--pln-bg)!important}
+
+/* ---------- Hover 3D que segue o mouse ---------- */
+html.pln-tilt-on .pln-follow{transform:perspective(800px) rotateX(var(--pln-rx,0deg)) rotateY(var(--pln-ry,0deg)) scale(var(--pln-sc,1.015));transition:transform .14s cubic-bezier(.22,1,.36,1);will-change:transform;transform-style:preserve-3d}
+html.pln-tilt-on .pln-spot{position:absolute;inset:0;z-index:3;pointer-events:none;border-radius:inherit;background:radial-gradient(circle at var(--pln-x,50%) var(--pln-y,50%),color-mix(in srgb,var(--pln-accent) 34%,transparent),transparent 58%);mix-blend-mode:screen}
+html.pln-tilt-on[data-pln-color=bullet] .pln-spot{background:radial-gradient(circle at var(--pln-x,50%) var(--pln-y,50%),rgba(255,255,255,.08),transparent 60%);mix-blend-mode:normal}
+
+/* ---------- Botão do player flutuante na barra do player ---------- */
+.pln-float-btn{display:inline-grid!important;place-items:center;vertical-align:top;opacity:.95}
+.pln-float-btn svg{width:24px;height:24px;fill:#fff;filter:drop-shadow(0 0 4px var(--pln-accent,#bd77ff));transition:transform .2s}
+.pln-float-btn:hover svg{transform:scale(1.12);fill:var(--pln-accent,#bd77ff)}
+.pln-float-btn.on svg{fill:var(--pln-accent,#bd77ff)}
+html:not([data-pln-color]) .pln-float-btn svg{filter:none}
+
+/* aviso no lugar do vídeo enquanto ele está na janela flutuante */
+#pln-float-holder{position:absolute;inset:0;z-index:20;display:grid;place-items:center;text-align:center;color:#fff;background:radial-gradient(circle at 50% 40%,color-mix(in srgb,var(--pln-accent,#bd77ff) 22%,#000),#000 70%);font:500 15px/1.4 Roboto,Arial,sans-serif;pointer-events:none}
+#pln-float-holder svg{width:54px;height:54px;fill:var(--pln-accent,#bd77ff);filter:drop-shadow(0 0 12px var(--pln-accent,#bd77ff))}
+#pln-float-holder p{margin:8px 0 14px}
+#pln-float-holder button{pointer-events:auto;cursor:pointer;padding:9px 18px;border-radius:999px;border:1px solid var(--pln-accent,#bd77ff);background:color-mix(in srgb,var(--pln-accent,#bd77ff) 25%,#000);color:#fff;font:600 13px Roboto,Arial,sans-serif;box-shadow:0 0 14px color-mix(in srgb,var(--pln-accent,#bd77ff) 60%,transparent)}
+#pln-float-holder button:hover{background:var(--pln-accent,#bd77ff);color:#000}
+
+#pln-toast{position:fixed;left:50%;bottom:28px;z-index:9999;max-width:min(520px,90vw);padding:12px 18px;border-radius:12px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#140b1e;color:#fff;border:1px solid var(--pln-accent,#bd77ff);box-shadow:0 12px 32px #000a,0 0 16px color-mix(in srgb,var(--pln-accent,#bd77ff) 45%,transparent);font:500 14px/1.4 Roboto,Arial,sans-serif;transition:opacity .2s,transform .2s}
+#pln-toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* botão "Flutuar" sobre o próprio vídeo: no alto, ao centro (os botões do Pluto ficam nos cantos); some nos anúncios */
+.pln-float-overlay{position:absolute;top:12px;left:50%;right:auto;translate:-50% 0;z-index:60;display:flex!important;align-items:center;gap:6px;height:36px;padding:0 14px 0 10px;border-radius:999px;border:1px solid color-mix(in srgb,var(--pln-accent,#bd77ff) 70%,transparent);background:color-mix(in srgb,#000 62%,var(--pln-accent,#bd77ff));color:#fff;font:600 13px/1 "Segoe UI",Roboto,Arial,sans-serif;cursor:pointer;opacity:0;transform:translateY(-4px);transition:opacity .2s,transform .2s,box-shadow .2s;box-shadow:0 0 14px color-mix(in srgb,var(--pln-accent,#bd77ff) 45%,transparent)}
+.pln-float-overlay svg{width:20px;height:20px;fill:currentColor}
+#alwaysOnPlayerContainer:hover .pln-float-overlay,.pln-float-overlay:focus-visible,.pln-float-overlay.on{opacity:1;transform:none}
+.pln-float-overlay:hover{background:var(--pln-accent,#bd77ff);color:#000;box-shadow:0 0 22px var(--pln-accent,#bd77ff)}
+html.pln-ad .pln-float-overlay,html.pln-no-float-btn .pln-float-btn{display:none!important}
+html[data-pln-color=bullet] .pln-float-overlay{background:#1A1A1A;border-color:#333;box-shadow:0 12px 32px rgba(0,0,0,.55)}
+html[data-pln-color=bullet] .pln-float-overlay:hover{background:#F8F3E9;color:#070707}
+/* botão na barra de baixo do player, do tamanho dos botões do Pluto */
+.pln-bar-btn{width:40px;height:40px;border:0;border-radius:50%;background:transparent;cursor:pointer}
+.pln-bar-btn svg{width:24px;height:24px}
+.pln-bar-btn:hover{background:#ffffff1f}
+
+/* aviso na tela (velocidade, volume, abertura pulada) */
+#pln-osd{position:absolute;top:56px;left:50%;z-index:70;padding:9px 16px;border-radius:999px;transform:translate(-50%,-6px);opacity:0;pointer-events:none;background:color-mix(in srgb,#000 78%,var(--pln-accent,#bd77ff));border:1px solid color-mix(in srgb,var(--pln-accent,#bd77ff) 60%,transparent);color:#fff;font:600 15px/1.2 "Segoe UI",Roboto,Arial,sans-serif;box-shadow:0 0 18px color-mix(in srgb,var(--pln-accent,#bd77ff) 40%,transparent);transition:opacity .18s,transform .18s;white-space:nowrap}
+#pln-osd.in-page{position:fixed}
+#pln-osd.show{opacity:1;transform:translate(-50%,0)}
+html[data-pln-color=bullet] #pln-osd{background:#1A1A1A;border-color:#333;box-shadow:0 12px 32px rgba(0,0,0,.55)}

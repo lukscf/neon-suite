@@ -1,0 +1,36 @@
+/* Pluto Neon (Neon Suite): tema neon para pluto.tv. Liga com html.pln-theme; cor em html[data-pln-color].
+   Usa os data-testid e as classes estáveis do player (Shaka) e, para o amarelo do Pluto,
+   as classes pln-blue-* que o content.js põe nos elementos com essa cor.
+   Anúncios não são escondidos nem alterados. */
+
+html.pln-theme{--pln-bg:#120918;--pln-panel:#1d0f27;--pln-raised:#2a1837;--pln-line:#48305a;--pln-text:#f6ebff;--pln-muted:#c4b4cf;--pln-accent:#bd77ff;--pln-accent2:#ff3ec8;--pln-glow:#bd77ff66}
+html.pln-theme[data-pln-color=blue]{--pln-bg:#090f18;--pln-panel:#0f1827;--pln-raised:#182337;--pln-line:#303f5a;--pln-text:#ebf2ff;--pln-muted:#b4becf;--pln-accent:#5c9dff;--pln-accent2:#50dcff;--pln-glow:#5c9dff66}
+html.pln-theme[data-pln-color=pink]{--pln-bg:#180911;--pln-panel:#270f1b;--pln-raised:#371828;--pln-line:#5a3045;--pln-text:#ffebf5;--pln-muted:#cfb4c2;--pln-accent:#ff74bb;--pln-accent2:#ffbe78;--pln-glow:#ff74bb66}
+html.pln-theme[data-pln-color=cyan]{--pln-bg:#091818;--pln-panel:#0f2726;--pln-raised:#183736;--pln-line:#305a58;--pln-text:#ebfffe;--pln-muted:#b4cfce;--pln-accent:#4fe0db;--pln-accent2:#32a0ff;--pln-glow:#4fe0db66}
+html.pln-theme[data-pln-color=green]{--pln-bg:#09180e;--pln-panel:#0f2717;--pln-raised:#183722;--pln-line:#305a3e;--pln-text:#ebfff1;--pln-muted:#b4cfbd;--pln-accent:#75df95;--pln-accent2:#c8ff78;--pln-glow:#75df9566}
+/* Tema Bullet: rampa ink neutra, lime-500 só como acento */
+html.pln-theme[data-pln-color=bullet]{--pln-bg:#070707;--pln-panel:#0C0C0C;--pln-raised:#1A1A1A;--pln-line:#242424;--pln-text:#FFFFFF;--pln-muted:#A3A3A3;--pln-accent:#C2F141;--pln-accent2:#C2F141;--pln-glow:rgba(194,241,65,.18)}
+
+html.pln-theme,html.pln-theme body{background-color:var(--pln-bg)!important}
+html.pln-theme{color-scheme:dark;scrollbar-color:var(--pln-line) var(--pln-bg)}
+html.pln-theme ::selection{background:color-mix(in srgb,var(--pln-accent) 45%,transparent)}
+
+/* Menu do topo e player: linha de luz e item ativo na cor do tema */
+html.pln-theme [data-testid=web-epg-nav-bar]{box-shadow:0 1px 0 color-mix(in srgb,var(--pln-accent) 30%,transparent)}
+html.pln-theme [data-testid=web-epg-nav-bar] :is(a,button):hover,html.pln-theme [data-testid=web-epg-nav-bar] [aria-current]{color:var(--pln-accent)!important;text-shadow:0 0 12px var(--pln-glow)}
+html.pln-theme #alwaysOnPlayerContainer{box-shadow:0 0 0 1px color-mix(in srgb,var(--pln-accent) 25%,transparent),0 18px 50px var(--pln-glow)}
+
+/* O amarelo do Pluto vira a cor do tema (classes postas pelo content.js) */
+html.pln-theme .pln-blue-bg{background-color:var(--pln-accent)!important;background-image:linear-gradient(135deg,var(--pln-accent),var(--pln-accent2))!important;color:var(--pln-bg)!important;box-shadow:0 0 14px var(--pln-glow)}
+html.pln-theme .pln-blue-bg *{color:inherit!important;fill:currentColor!important}
+html.pln-theme .pln-blue-fg{color:var(--pln-accent)!important;fill:var(--pln-accent)!important}
+html.pln-theme .pln-blue-border{border-color:var(--pln-accent)!important}
+html.pln-theme[data-pln-color=bullet] .pln-blue-bg{background:#F8F3E9!important;color:#070707!important;box-shadow:none}
+
+/* Player: barra de progresso e ponteiro na cor do tema (as marcas de anúncio ficam como estão) */
+html.pln-theme #alwaysOnPlayerContainer :is(.seek-bar-progress,.seek-bar-live-progress-track){background:linear-gradient(90deg,var(--pln-accent2),var(--pln-accent))!important}
+html.pln-theme #alwaysOnPlayerContainer .seek-bar-playhead{background:var(--pln-accent)!important;box-shadow:0 0 10px var(--pln-accent)!important}
+html.pln-theme[data-pln-color=bullet] #alwaysOnPlayerContainer :is(.seek-bar-progress,.seek-bar-live-progress-track){background:#C2F141!important}
+
+html.pln-theme :focus-visible{outline:2px solid var(--pln-accent)!important;outline-offset:2px}
+html.pln-theme[data-pln-color=bullet] *{transition-timing-function:cubic-bezier(.22,1,.36,1)}
