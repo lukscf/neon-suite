@@ -72,3 +72,7 @@ html[data-pln-color=bullet] .pln-float-overlay:hover{background:#F8F3E9;color:#0
 #pln-osd.in-page{position:fixed}
 #pln-osd.show{opacity:1;transform:translate(-50%,0)}
 html[data-pln-color=bullet] #pln-osd{background:#1A1A1A;border-color:#333;box-shadow:0 12px 32px rgba(0,0,0,.55)}
+
+/* Com o nosso player flutuante aberto, o mini player do próprio Pluto (que aparece ao rolar a página)
+   fica escondido: ele só mostraria o aviso "Tocando no player flutuante". Volta ao fechar o flutuante. */
+html.pln-float-on [class*=PersistentAlwaysOnPlayer_dock]{visibility:hidden!important;pointer-events:none!important}

@@ -1,5 +1,8 @@
 # Histórico
 
+## 1.2.2
+- **Pluto TV:** com o nosso player flutuante aberto (completo ou mínimo), o mini player do próprio Pluto, que aparece ao rolar a página, fica escondido. Ele só mostraria o aviso "Tocando no player flutuante". Volta sozinho quando o flutuante fecha.
+
 ## 1.2.1
 - **Pluto TV: o tema agora aparece.** O Pluto pinta o site inteiro com os tokens de cor do design system dele, e o tema só mudava o fundo da página, que ficava escondido atrás do preto. Agora os tokens seguem a cor escolhida:
   - fundo e painéis do guia;

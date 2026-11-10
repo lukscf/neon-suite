@@ -305,6 +305,8 @@
   // ---------- Botão neon na barra do player ----------
   function syncButtons() {
     const on = !!(st.win || document.pictureInPictureElement);
+    // marca a página enquanto o vídeo flutua (completo ou mínimo): o CSS esconde o mini player do Pluto
+    document.documentElement.classList.toggle("pln-float-on", on);
     for (const b of document.querySelectorAll(".pln-float-btn")) {
       b.classList.toggle("on", on);
       if (b.classList.contains("pln-float-overlay")) { b.querySelector("span").textContent = on ? "Voltar" : "Flutuar"; }
