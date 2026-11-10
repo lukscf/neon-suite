@@ -15,6 +15,46 @@ html.pln-theme,html.pln-theme body{background-color:var(--pln-bg)!important}
 html.pln-theme{color-scheme:dark;scrollbar-color:var(--pln-line) var(--pln-bg)}
 html.pln-theme ::selection{background:color-mix(in srgb,var(--pln-accent) 45%,transparent)}
 
+/* O Pluto pinta o site inteiro a partir de tokens do design system dele (--color-ui-*, --color-bg-*,
+   --color-brand-*, --color-fg-*, --color-border-*). Trocando os tokens, fundo, painéis do guia,
+   seleção, links, botões e foco passam a seguir o tema. A tela de fundo fica transparente para o
+   fundo animado aparecer atrás. */
+html.pln-theme,html.pln-theme .vds-theme-wrapper,html.pln-theme .vds-theme-wrapper--round{
+  --color-ui-canvas:transparent!important;
+  --color-ui-surface-primary:var(--pln-panel)!important;
+  --color-ui-surface-secondary:var(--pln-raised)!important;
+  --color-bg-darkest:transparent!important;
+  --color-bg-darker:var(--pln-panel)!important;
+  --color-bg-dark:var(--pln-raised)!important;
+  --color-bg-dark-90:color-mix(in srgb,var(--pln-bg) 90%,transparent)!important;
+  --color-bg-primary-interactive:var(--pln-accent)!important;
+  --color-brand-primary:var(--pln-accent)!important;
+  --color-accent-primary:var(--pln-accent)!important;
+  --color-brand-gradient:linear-gradient(45deg,var(--pln-accent2),var(--pln-accent))!important;
+  --color-brand-gradient-inverse:linear-gradient(45deg,var(--pln-accent),var(--pln-accent2))!important;
+  --gradient-ptv-default:linear-gradient(45deg,var(--pln-accent2),var(--pln-accent))!important;
+  --color-fg-selected:var(--pln-accent)!important;
+  --color-fg-links:var(--pln-accent)!important;
+  --color-fg-callout:var(--pln-accent)!important;
+  --color-fg-primary-interactive:var(--pln-bg)!important;
+  --color-fg-secondary:var(--pln-muted)!important;
+  --color-border-primary-interactive:var(--pln-accent)!important;
+  --color-border-focus:var(--pln-accent)!important;
+  --color-border-selected:var(--pln-accent)!important;
+  --color-border-weak:var(--pln-line)!important;
+  --color-border-smooth:var(--pln-line)!important;
+  --color-border-soft:var(--pln-line)!important;
+  --modal-base-bg:var(--pln-panel)!important;
+}
+/* contêineres que o Pluto pinta de preto direto, sem token */
+html.pln-theme :is(.vds-theme-wrapper,[class*=LiveTvHub_epgSection],[class*=ValueProp_valueProp]){background-color:transparent!important}
+html.pln-theme .vds-footer{background-color:var(--pln-panel)!important}
+/* Bullet: botões principais em paper, sem degradê */
+html.pln-theme[data-pln-color=bullet],html.pln-theme[data-pln-color=bullet] .vds-theme-wrapper{
+  --color-bg-primary-interactive:#F8F3E9!important;--color-fg-primary-interactive:#070707!important;
+  --color-brand-gradient:linear-gradient(45deg,#C2F141,#C2F141)!important;--gradient-ptv-default:linear-gradient(45deg,#C2F141,#C2F141)!important;
+}
+
 /* Menu do topo e player: linha de luz e item ativo na cor do tema */
 html.pln-theme [data-testid=web-epg-nav-bar]{box-shadow:0 1px 0 color-mix(in srgb,var(--pln-accent) 30%,transparent)}
 html.pln-theme [data-testid=web-epg-nav-bar] :is(a,button):hover,html.pln-theme [data-testid=web-epg-nav-bar] [aria-current]{color:var(--pln-accent)!important;text-shadow:0 0 12px var(--pln-glow)}

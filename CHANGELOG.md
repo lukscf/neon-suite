@@ -1,5 +1,13 @@
 # Histórico
 
+## 1.2.1
+- **Pluto TV: o tema agora aparece.** O Pluto pinta o site inteiro com os tokens de cor do design system dele, e o tema só mudava o fundo da página, que ficava escondido atrás do preto. Agora os tokens seguem a cor escolhida:
+  - fundo e painéis do guia;
+  - seleção do canal;
+  - links, botões e foco;
+  - rodapé.
+  A tela de fundo fica transparente para o fundo animado aparecer.
+
 ## 1.2.0
 - **Pluto TV**, o sexto site da Suite. O menu, o ícone e as preferências são próprios.
   - **Tema neon** com 6 cores, incluindo Bullet. O amarelo do Pluto vira a cor do tema, o guia de canais e o menu brilham e inclinam com o mouse, e há fundo animado atrás do conteúdo.
