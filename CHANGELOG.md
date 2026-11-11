@@ -1,5 +1,8 @@
 # Histórico
 
+## 1.2.4
+- Nome e descrição curta da extensão sem nomes de outras empresas (exigência da Chrome Web Store). Nada muda no funcionamento.
+
 ## 1.2.3
 - **WhatsApp: áudio não toca mais sozinho ao abrir uma conversa.** Para transcrever, a extensão aperta o play do áudio sem som e pausa. O WhatsApp às vezes chamava o play uma segunda vez (áudio ainda baixando) e esse segundo play saía com som.
   - Agora, durante a captura e alguns segundos depois, todo play sem clique seu num balão de áudio fica mudo e é pausado.

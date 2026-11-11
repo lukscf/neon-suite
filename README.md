@@ -1,6 +1,6 @@
 <p align="center"><img src="icons/icon128.png" width="96" alt="Ícone da Neon Suite"></p>
 
-# Neon Suite: Gmail, WhatsApp, Slack, YouTube, Prime Video e Pluto TV
+# Neon Suite: tema neon e player flutuante
 
 **Neon Suite** é uma extensão só para Chrome e Edge que junta o GM Neon, o WP Neon, o SL Neon e o YT Neon, e inclui também o Prime Video e o Pluto TV. Ela dá tema neon e recursos extras ao Gmail, ao WhatsApp Web, ao Slack, ao YouTube, ao Prime Video e ao Pluto TV.
 

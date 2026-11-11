@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Neon Suite: Gmail, WhatsApp, Slack, YouTube, Prime Video e Pluto TV",
-  "version": "1.2.3",
-  "description": "Tema neon e recursos extras para Gmail, WhatsApp, Slack, YouTube, Prime Video e Pluto TV numa extensão só. O menu muda por site.",
+  "name": "Neon Suite: tema neon e player flutuante",
+  "version": "1.2.4",
+  "description": "Tema escuro neon, player flutuante e recursos extras para sites de e-mail, conversa e vídeo. O menu muda conforme o site.",
   "icons": {
     "16": "icons/icon16.png",
     "32": "icons/icon32.png",
