@@ -1,5 +1,11 @@
 # Histórico
 
+## 1.2.3
+- **WhatsApp: áudio não toca mais sozinho ao abrir uma conversa.** Para transcrever, a extensão aperta o play do áudio sem som e pausa. O WhatsApp às vezes chamava o play uma segunda vez (áudio ainda baixando) e esse segundo play saía com som.
+  - Agora, durante a captura e alguns segundos depois, todo play sem clique seu num balão de áudio fica mudo e é pausado.
+  - Play que você mesmo dá num áudio continua tocando normalmente.
+  - A captura só pega áudios de voz (blob:).
+
 ## 1.2.2
 - **Pluto TV:** com o nosso player flutuante aberto (completo ou mínimo), o mini player do próprio Pluto, que aparece ao rolar a página, fica escondido. Ele só mostraria o aviso "Tocando no player flutuante". Volta sozinho quando o flutuante fecha.
 
