@@ -1,5 +1,9 @@
 # Histórico
 
+## 1.3.2
+- **Calendar: compromissos e agendas acompanham a cor do tema.** Antes a extensão preservava a cor original de cada compromisso; agora todos (e as cores das agendas na barra lateral, inclusive as de outras pessoas) viram tons da cor escolhida, mantendo claro/escuro de cada um pra continuarem distinguíveis.
+- **Calendar: corrige sobreposição no menu lateral do tema Bullet.** A troca de fonte (Open Sans) estourava a altura reservada pro texto de "Páginas de agendamento de horário" e sobrepunha o botão "+" ao lado. O tema Bullet deixou de trocar a fonte do Calendar.
+
 ## 1.3.1
 - **Calendar: hover 3D mais forte.** O brilho e a inclinação dos compromissos e botões ao passar o mouse estavam quase imperceptíveis. Agora elevam de verdade (translateZ maior, leve aumento de escala), com um contorno neon visível e inclinação maior nos cantos.
 

@@ -1,11 +1,16 @@
 /* CA Neon 1.0 — tema neon para calendar.google.com. Liga com body.can-theme; cor em body[data-can-color].
-   Os compromissos mantêm a própria cor (é o que organiza a agenda); o tema troca o resto. */
-body.can-theme{--can-bg:#100b1a;--can-panel:#1a1029;--can-raised:#251736;--can-line:#473159;--can-text:#f2eaff;--can-muted:#bdafce;--can-accent:#bd77ff;--can-glow:#bd77ff66}
-body.can-theme[data-can-color=blue]{--can-accent:#5c9dff;--can-glow:#5c9dff66;--can-bg:#090f18;--can-panel:#0f1827;--can-raised:#182337;--can-line:#303f5a;--can-text:#ebf2ff;--can-muted:#b4becf}
-body.can-theme[data-can-color=pink]{--can-accent:#ff74bb;--can-glow:#ff74bb66;--can-bg:#180911;--can-panel:#270f1b;--can-raised:#371828;--can-line:#5a3045;--can-text:#ffebf5;--can-muted:#cfb4c2}
-body.can-theme[data-can-color=cyan]{--can-accent:#4fe0db;--can-glow:#4fe0db66;--can-bg:#091818;--can-panel:#0f2726;--can-raised:#183736;--can-line:#305a58;--can-text:#ebfffe;--can-muted:#b4cfce}
-body.can-theme[data-can-color=green]{--can-accent:#75df95;--can-glow:#75df9566;--can-bg:#09180e;--can-panel:#0f2717;--can-raised:#183722;--can-line:#305a3e;--can-text:#ebfff1;--can-muted:#b4cfbd}
+   Os compromissos e as cores das agendas (barra lateral) acompanham a cor do tema escolhida. */
+body.can-theme{--can-bg:#100b1a;--can-panel:#1a1029;--can-raised:#251736;--can-line:#473159;--can-text:#f2eaff;--can-muted:#bdafce;--can-accent:#bd77ff;--can-glow:#bd77ff66;--can-event-rotate:231deg}
+body.can-theme[data-can-color=blue]{--can-accent:#5c9dff;--can-glow:#5c9dff66;--can-bg:#090f18;--can-panel:#0f1827;--can-raised:#182337;--can-line:#303f5a;--can-text:#ebf2ff;--can-muted:#b4becf;--can-event-rotate:176deg}
+body.can-theme[data-can-color=pink]{--can-accent:#ff74bb;--can-glow:#ff74bb66;--can-bg:#180911;--can-panel:#270f1b;--can-raised:#371828;--can-line:#5a3045;--can-text:#ffebf5;--can-muted:#cfb4c2;--can-event-rotate:289deg}
+body.can-theme[data-can-color=cyan]{--can-accent:#4fe0db;--can-glow:#4fe0db66;--can-bg:#091818;--can-panel:#0f2726;--can-raised:#183736;--can-line:#305a58;--can-text:#ebfffe;--can-muted:#b4cfce;--can-event-rotate:138deg}
+body.can-theme[data-can-color=green]{--can-accent:#75df95;--can-glow:#75df9566;--can-bg:#09180e;--can-panel:#0f2717;--can-raised:#183722;--can-line:#305a3e;--can-text:#ebfff1;--can-muted:#b4cfbd;--can-event-rotate:98deg}
 body.can-theme{--can-soft:color-mix(in srgb,var(--can-accent) 18%,transparent);--can-soft2:color-mix(in srgb,var(--can-accent) 30%,transparent);color-scheme:dark}
+
+/* Compromissos e as cores das agendas (minhas e as de outras pessoas) viram tons da cor do tema:
+   duotone (dessatura e reaplica só o matiz escolhido), preservando a diferença de claro/escuro
+   entre eles para continuarem distinguíveis. */
+body.can-theme:not([data-can-color=bullet]) :is([data-eventid],[style*="--checkbox-color"]){filter:grayscale(1) sepia(.8) saturate(3.2) hue-rotate(var(--can-event-rotate)) contrast(1.2) brightness(.95)!important}
 
 /* ---------- Estrutura: fundo, topo, barra lateral, grade ---------- */
 body.can-theme{background:var(--can-bg)!important;color:var(--can-text)!important}
