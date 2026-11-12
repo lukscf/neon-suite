@@ -1,5 +1,8 @@
 # Histórico
 
+## 1.3.3
+- **Calendar: corrige sobreposição em "Páginas de agendamento de horário".** É um bug do próprio Google Calendar (reproduz igual com a extensão desligada): o rótulo quebra em 3 linhas na largura da barra lateral, e o botão "+" ao lado fica numa posição fixa que não acompanha, sobrepondo o texto. A extensão agora trunca o rótulo em 2 linhas (com reticências) nesse ponto específico, o que evita a colisão.
+
 ## 1.3.2
 - **Calendar: compromissos e agendas acompanham a cor do tema.** Antes a extensão preservava a cor original de cada compromisso; agora todos (e as cores das agendas na barra lateral, inclusive as de outras pessoas) viram tons da cor escolhida, mantendo claro/escuro de cada um pra continuarem distinguíveis.
 - **Calendar: corrige sobreposição no menu lateral do tema Bullet.** A troca de fonte (Open Sans) estourava a altura reservada pro texto de "Páginas de agendamento de horário" e sobrepunha o botão "+" ao lado. O tema Bullet deixou de trocar a fonte do Calendar.

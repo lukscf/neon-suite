@@ -38,6 +38,11 @@ body.can-theme :is([role=menu] [role=menuitem]:hover,[role=menu] [role=menuitem]
 
 /* Botão "Criar" e botões primários: pílula com brilho neon */
 body.can-theme [role=button]{transition:box-shadow .2s,transform .2s cubic-bezier(.16,1,.3,1),background-color .2s,border-color .2s}
+
+/* Bug do próprio Calendar (não é do tema: reproduz igual com a extensão desligada): a etiqueta
+   "Páginas de agendamento de horário" quebra em 3 linhas nessa largura, e o botão "+" ao lado
+   fica numa posição fixa que não acompanha, sobrepondo a 2ª linha do texto. Trunca em 2 linhas. */
+body.can-theme button[aria-controls="bookable-pages-root"] > div > div > div:first-child{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;white-space:normal}
 body.can-theme button[jsname],body.can-theme [role=button][aria-label*="Criar" i],body.can-theme [role=button][aria-label*="Create" i]{box-shadow:0 0 16px var(--can-glow)!important}
 
 /* ---------- Corretor de contraste (classes aplicadas pelo content.js) ---------- */
