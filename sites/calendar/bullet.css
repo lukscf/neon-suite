@@ -1,15 +1,19 @@
 /* Tema Bullet: paleta e movimento do Bullet Identity Source v1.27.
    Fundo ink-990, rampa ink, texto branco e paper-100. Acento lime-500 só em detalhe, nunca como fundo.
    Sem troca de fonte: a barra lateral do Calendar reserva pouco espaço pro texto dos menus, e a Open
-   Sans é larga o bastante pra estourar essa altura e sobrepor o botão ao lado (bug visto ao vivo). */
+   Sans é larga o bastante pra estourar essa altura. */
 body.can-theme[data-can-color=bullet]{--can-bg:#070707;--can-panel:#0C0C0C;--can-raised:#1A1A1A;--can-line:#242424;--can-text:#FFFFFF;--can-muted:#A3A3A3;--can-accent:#C2F141;--can-glow:rgba(194,241,65,.16);--can-soft:rgba(255,255,255,.08);--can-soft2:rgba(255,255,255,.10)}
 body.can-theme[data-can-color=bullet] :focus-visible{outline:2px solid #C2F141!important;outline-offset:2px}
 /* Compromissos e cores das agendas: tons de cinza (nunca lima de fundo, só no contorno do hover) */
 body.can-theme[data-can-color=bullet] :is([data-eventid],[style*="--checkbox-color"]){filter:grayscale(.85) contrast(1.08)!important}
-/* Botões primários (Criar etc.): pílula clara com texto preto, como no resto da Suite */
-body.can-theme[data-can-color=bullet] button[jsname]{background:#F8F3E9!important;color:#070707!important;box-shadow:0 12px 32px rgba(0,0,0,.55)!important}
-body.can-theme[data-can-color=bullet] button[jsname] *{color:#070707!important}
-body.can-theme[data-can-color=bullet] button[jsname]:hover{background:#FFFFFF!important;box-shadow:0 12px 32px rgba(0,0,0,.55),0 0 0 2px #C2F141!important}
+/* Botão "Criar": pílula clara com texto preto, como no resto da Suite.
+   Seletor específico (button.gPr58d), nunca button[jsname] sozinho: jsname é um atributo genérico
+   do framework do Google, presente em quase todo botão da página — pintava até o botão de
+   "Páginas de agendamento de horário" na barra lateral, com fundo de altura fixa que sobrepunha
+   o "+" ao lado (bug visto ao vivo, corrigido junto com este seletor). */
+body.can-theme[data-can-color=bullet] :is(button.gPr58d,[role=button][aria-label*="Criar" i],[role=button][aria-label*="Create" i]){background:#F8F3E9!important;color:#070707!important;box-shadow:0 12px 32px rgba(0,0,0,.55)!important}
+body.can-theme[data-can-color=bullet] :is(button.gPr58d,[role=button][aria-label*="Criar" i],[role=button][aria-label*="Create" i]) *{color:#070707!important}
+body.can-theme[data-can-color=bullet] :is(button.gPr58d,[role=button][aria-label*="Criar" i],[role=button][aria-label*="Create" i]):hover{background:#FFFFFF!important;box-shadow:0 12px 32px rgba(0,0,0,.55),0 0 0 2px #C2F141!important}
 /* Fundo "Bullet": o canvas do bullet-fx.js entra dentro de #can-fx */
 body[data-can-bg=bullet] #can-fx{opacity:.6;mix-blend-mode:normal;background:none}
 body[data-can-bg=bullet] #can-fx :is(.can-fx-shape,.can-fx-particles){display:none}

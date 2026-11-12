@@ -1,5 +1,8 @@
 # Histórico
 
+## 1.3.4
+- **Calendar: achada a causa real da sobreposição em "Páginas de agendamento de horário".** Não era bug do Google Calendar nem precisava truncar o texto (revertido o corte em 2 linhas da 1.3.3) — era a nossa própria regra do tema Bullet (`button[jsname]`), ampla demais: `jsname` é um atributo genérico do Google presente em quase todo botão da página, então ela pintava até esse botão de agendamento com um fundo de altura fixa que sobrepunha o "+". Trocado por um seletor específico do botão "Criar", e o botão de agendamento agora cresce para caber as 3 linhas sem sobreposição.
+
 ## 1.3.3
 - **Calendar: corrige sobreposição em "Páginas de agendamento de horário".** É um bug do próprio Google Calendar (reproduz igual com a extensão desligada): o rótulo quebra em 3 linhas na largura da barra lateral, e o botão "+" ao lado fica numa posição fixa que não acompanha, sobrepondo o texto. A extensão agora trunca o rótulo em 2 linhas (com reticências) nesse ponto específico, o que evita a colisão.
 
