@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Neon Suite: tema neon e player flutuante",
-  "version": "1.2.4",
+  "version": "1.3.0",
   "description": "Tema escuro neon, player flutuante e recursos extras para sites de e-mail, conversa e vídeo. O menu muda conforme o site.",
   "icons": {
     "16": "icons/icon16.png",
@@ -23,7 +23,8 @@
     "https://app.slack.com/*",
     "https://www.youtube.com/*",
     "https://www.primevideo.com/*",
-    "https://pluto.tv/*"
+    "https://pluto.tv/*",
+    "https://calendar.google.com/calendar/*"
   ],
   "action": {
     "default_title": "Neon Suite",
@@ -193,6 +194,22 @@
         "sites/pluto/fonts.css"
       ],
       "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://calendar.google.com/calendar/*"
+      ],
+      "js": [
+        "ns.js",
+        "bullet-fx.js",
+        "sites/calendar/content.js"
+      ],
+      "css": [
+        "sites/calendar/theme.css",
+        "sites/calendar/effects.css",
+        "sites/calendar/bullet.css"
+      ],
+      "run_at": "document_idle"
     }
   ],
   "web_accessible_resources": [
@@ -206,7 +223,8 @@
         "https://app.slack.com/*",
         "https://www.youtube.com/*",
         "https://www.primevideo.com/*",
-        "https://pluto.tv/*"
+        "https://pluto.tv/*",
+        "https://calendar.google.com/*"
       ]
     }
   ]

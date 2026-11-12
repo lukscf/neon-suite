@@ -1,5 +1,12 @@
 # Histórico
 
+## 1.3.0
+- **Google Calendar**, o sétimo site da Suite. O menu, o ícone e as preferências são próprios.
+  - **Tema neon** com 6 cores, incluindo Bullet. Fundo, grade, diálogos (criar/editar compromisso) e menus seguem a cor escolhida; a cor de cada compromisso continua a que você escolheu no próprio Calendar.
+  - **Hover 3D que segue o mouse** nos compromissos e nos botões, com fundo animado atrás da grade.
+  - **Modo discreto (Alt+P):** borra o título dos compromissos até passar o mouse em cima — útil em compartilhamento de tela.
+- A página inicial da Suite e o "Cor em todos os sites" incluem o Calendar.
+
 ## 1.2.4
 - Nome e descrição curta da extensão sem nomes de outras empresas (exigência da Chrome Web Store). Nada muda no funcionamento.
 

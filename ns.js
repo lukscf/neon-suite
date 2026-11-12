@@ -11,7 +11,8 @@
     "app.slack.com": "slack",
     "www.youtube.com": "youtube",
     "www.primevideo.com": "prime",
-    "pluto.tv": "pluto"
+    "pluto.tv": "pluto",
+    "calendar.google.com": "calendar"
   };
   const siteOfUrl = (url) => {
     try { return SITES[new URL(url).hostname] || null; } catch { return null; }

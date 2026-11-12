@@ -1,0 +1,50 @@
+/* CA Neon 1.0 — tema neon para calendar.google.com. Liga com body.can-theme; cor em body[data-can-color].
+   Os compromissos mantêm a própria cor (é o que organiza a agenda); o tema troca o resto. */
+body.can-theme{--can-bg:#100b1a;--can-panel:#1a1029;--can-raised:#251736;--can-line:#473159;--can-text:#f2eaff;--can-muted:#bdafce;--can-accent:#bd77ff;--can-glow:#bd77ff66}
+body.can-theme[data-can-color=blue]{--can-accent:#5c9dff;--can-glow:#5c9dff66;--can-bg:#090f18;--can-panel:#0f1827;--can-raised:#182337;--can-line:#303f5a;--can-text:#ebf2ff;--can-muted:#b4becf}
+body.can-theme[data-can-color=pink]{--can-accent:#ff74bb;--can-glow:#ff74bb66;--can-bg:#180911;--can-panel:#270f1b;--can-raised:#371828;--can-line:#5a3045;--can-text:#ffebf5;--can-muted:#cfb4c2}
+body.can-theme[data-can-color=cyan]{--can-accent:#4fe0db;--can-glow:#4fe0db66;--can-bg:#091818;--can-panel:#0f2726;--can-raised:#183736;--can-line:#305a58;--can-text:#ebfffe;--can-muted:#b4cfce}
+body.can-theme[data-can-color=green]{--can-accent:#75df95;--can-glow:#75df9566;--can-bg:#09180e;--can-panel:#0f2717;--can-raised:#183722;--can-line:#305a3e;--can-text:#ebfff1;--can-muted:#b4cfbd}
+body.can-theme{--can-soft:color-mix(in srgb,var(--can-accent) 18%,transparent);--can-soft2:color-mix(in srgb,var(--can-accent) 30%,transparent);color-scheme:dark}
+
+/* ---------- Estrutura: fundo, topo, barra lateral, grade ---------- */
+body.can-theme{background:var(--can-bg)!important;color:var(--can-text)!important}
+body.can-theme :is([role=main],[role=navigation],[role=banner],[role=complementary],header,aside,c-wiz){background-color:transparent!important;color:var(--can-text)!important}
+body.can-theme [role=main]{border-color:var(--can-line)!important}
+
+/* Grade do mês/semana/dia: linhas finas visíveis sobre o fundo escuro */
+body.can-theme [role=gridcell],body.can-theme [role=row]{border-color:var(--can-line)!important}
+body.can-theme [role=columnheader],body.can-theme [role=rowheader]{color:var(--can-muted)!important}
+
+/* Botões e links genéricos */
+body.can-theme a,body.can-theme [role=link]{color:var(--can-accent)}
+body.can-theme input,body.can-theme textarea,body.can-theme [contenteditable=true]{color:var(--can-text)!important;caret-color:var(--can-accent)}
+body.can-theme input[type=search],body.can-theme input[type=text]{background:var(--can-raised)!important;border-color:var(--can-line)!important}
+body.can-theme input:focus,body.can-theme textarea:focus{outline-color:var(--can-accent)!important}
+body.can-theme ::-webkit-scrollbar-thumb{background:var(--can-soft2)!important;border-radius:9px}
+body.can-theme ::-webkit-scrollbar-track{background:transparent!important}
+
+/* Diálogos (criar/editar compromisso, detalhes) e menus/pop-ups */
+body.can-theme [role=dialog]{background-color:var(--can-panel)!important;color:var(--can-text)!important;border:1px solid var(--can-accent)!important;box-shadow:0 18px 50px #000b,0 0 30px var(--can-glow)!important;border-radius:16px!important}
+body.can-theme [role=dialog] *{border-color:var(--can-line)}
+body.can-theme :is([role=menu],[role=listbox]){background:var(--can-panel)!important;color:var(--can-text)!important;border:1px solid var(--can-line)!important;border-radius:14px!important;box-shadow:0 18px 50px #000b,0 0 22px var(--can-glow)!important;opacity:1!important}
+body.can-theme :is([role=menu] [role=menuitem],[role=menu] [role=menuitemcheckbox],[role=menu] [role=menuitemradio],[role=listbox] [role=option]){background:transparent!important;color:var(--can-text)!important;border-radius:9px}
+body.can-theme :is([role=menu] [role=menuitem]:hover,[role=menu] [role=menuitem]:focus,[role=listbox] [role=option]:hover,[role=listbox] [aria-selected=true]){background:var(--can-soft)!important;color:var(--can-accent)!important}
+
+/* Botão "Criar" e botões primários: pílula com brilho neon */
+body.can-theme [role=button]{transition:box-shadow .2s,transform .2s cubic-bezier(.16,1,.3,1),background-color .2s,border-color .2s}
+body.can-theme button[jsname],body.can-theme [role=button][aria-label*="Criar" i],body.can-theme [role=button][aria-label*="Create" i]{box-shadow:0 0 16px var(--can-glow)!important}
+
+/* ---------- Corretor de contraste (classes aplicadas pelo content.js) ---------- */
+body.can-theme .can-surface{background-color:var(--can-raised)!important;color:var(--can-text)!important;border-color:var(--can-line)!important}
+body.can-theme .can-ink{color:var(--can-text)!important}
+body.can-theme .can-ink-link{color:var(--can-accent)!important}
+
+/* ---------- Hover 3D que segue o mouse (compromissos e botões) ---------- */
+body.can-tilt-on .can-follow{transform:perspective(600px) rotateX(var(--can-rx,0)) rotateY(var(--can-ry,0)) translateZ(0) scale(1.025);transition:transform .08s linear,box-shadow .2s;box-shadow:0 6px 16px #0008,0 0 12px var(--can-glow)!important;overflow:hidden;position:relative;z-index:2}
+.can-spot{position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:radial-gradient(circle at var(--can-x,50%) var(--can-y,50%),color-mix(in srgb,var(--can-accent,#bd77ff) 40%,transparent),transparent 65%);mix-blend-mode:screen}
+@media(prefers-reduced-motion:reduce){body.can-theme .can-follow{transform:none!important;transition:none!important}}
+
+/* ---------- Modo discreto (Alt+P): borra o título dos compromissos até passar o mouse ---------- */
+body.can-privacy [data-eventid]{filter:blur(5px);transition:filter .15s}
+body.can-privacy [data-eventid]:hover{filter:none}
