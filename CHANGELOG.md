@@ -1,5 +1,8 @@
 # Histórico
 
+## 1.3.1
+- **Calendar: hover 3D mais forte.** O brilho e a inclinação dos compromissos e botões ao passar o mouse estavam quase imperceptíveis. Agora elevam de verdade (translateZ maior, leve aumento de escala), com um contorno neon visível e inclinação maior nos cantos.
+
 ## 1.3.0
 - **Google Calendar**, o sétimo site da Suite. O menu, o ícone e as preferências são próprios.
   - **Tema neon** com 6 cores, incluindo Bullet. Fundo, grade, diálogos (criar/editar compromisso) e menus seguem a cor escolhida; a cor de cada compromisso continua a que você escolheu no próprio Calendar.

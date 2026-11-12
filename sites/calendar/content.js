@@ -114,8 +114,8 @@
     const r = followEl.getBoundingClientRect();
     const x = Math.max(0, Math.min(1, (followPoint.x - r.left) / r.width));
     const y = Math.max(0, Math.min(1, (followPoint.y - r.top) / r.height));
-    const tiltY = r.width > 120 ? 10 : 18;
-    const tiltX = r.height > 30 ? 6 : 14;
+    const tiltY = r.width > 120 ? 16 : 24;
+    const tiltX = r.height > 30 ? 10 : 20;
     followEl.style.setProperty("--can-ry", ((x - 0.5) * tiltY).toFixed(2) + "deg");
     followEl.style.setProperty("--can-rx", ((0.5 - y) * tiltX).toFixed(2) + "deg");
     followEl.style.setProperty("--can-x", (x * 100).toFixed(1) + "%");
