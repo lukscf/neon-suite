@@ -35,4 +35,4 @@ const NeonIcon = (() => {
 })();
 
 // backgrounds dos sites
-importScripts("sites/gmail/background.js", "sites/whatsapp/background.js", "sites/slack/background.js", "sites/youtube/background.js", "sites/prime/background.js", "sites/pluto/background.js");
+importScripts("sites/gmail/background.js", "sites/whatsapp/background.js", "sites/slack/background.js", "sites/youtube/background.js", "sites/prime/background.js", "sites/pluto/background.js", "sites/calendar/background.js");

@@ -1,12 +1,32 @@
 # Histórico
 
-## 1.3.0
+## 1.4.0
 - **Slack: links abrem direto no navegador.** Link de `<workspace>.slack.com` (canal, DM, mensagem ou thread) abria a página "Iniciando...", que tenta abrir o app do Slack e faz o Windows pedir um aplicativo. Agora a extensão redireciona o link para `app.slack.com` antes de a página carregar.
   - Mensagem e thread abrem com a mensagem no painel lateral.
   - É opcional: ligue em "Abrir links do Slack no navegador", no menu do Slack. Só aí o Chrome pede acesso a `*.slack.com`. Quem não liga não vê aviso de permissão nova, e a atualização não desativa a extensão.
   - Funciona depois que você abre o workspace uma vez em `app.slack.com` com a extensão ligada: é ali que ela aprende o ID do workspace.
   - Nova permissão `declarativeNetRequestWithHostAccess`, que não mostra aviso na instalação.
 - **Slack: a barra "N respostas" funciona em qualquer ponto.** O hover 3D girava a barra dentro da mensagem, que também gira, e em alguns pontos o clique caía na mensagem. Agora a barra brilha sem girar, e clicar em qualquer parte dela (fundo, "Última resposta") abre a thread.
+
+## 1.3.4
+- **Calendar: achada a causa real da sobreposição em "Páginas de agendamento de horário".** Não era bug do Google Calendar nem precisava truncar o texto (revertido o corte em 2 linhas da 1.3.3) — era a nossa própria regra do tema Bullet (`button[jsname]`), ampla demais: `jsname` é um atributo genérico do Google presente em quase todo botão da página, então ela pintava até esse botão de agendamento com um fundo de altura fixa que sobrepunha o "+". Trocado por um seletor específico do botão "Criar", e o botão de agendamento agora cresce para caber as 3 linhas sem sobreposição.
+
+## 1.3.3
+- **Calendar: corrige sobreposição em "Páginas de agendamento de horário".** É um bug do próprio Google Calendar (reproduz igual com a extensão desligada): o rótulo quebra em 3 linhas na largura da barra lateral, e o botão "+" ao lado fica numa posição fixa que não acompanha, sobrepondo o texto. A extensão agora trunca o rótulo em 2 linhas (com reticências) nesse ponto específico, o que evita a colisão.
+
+## 1.3.2
+- **Calendar: compromissos e agendas acompanham a cor do tema.** Antes a extensão preservava a cor original de cada compromisso; agora todos (e as cores das agendas na barra lateral, inclusive as de outras pessoas) viram tons da cor escolhida, mantendo claro/escuro de cada um pra continuarem distinguíveis.
+- **Calendar: corrige sobreposição no menu lateral do tema Bullet.** A troca de fonte (Open Sans) estourava a altura reservada pro texto de "Páginas de agendamento de horário" e sobrepunha o botão "+" ao lado. O tema Bullet deixou de trocar a fonte do Calendar.
+
+## 1.3.1
+- **Calendar: hover 3D mais forte.** O brilho e a inclinação dos compromissos e botões ao passar o mouse estavam quase imperceptíveis. Agora elevam de verdade (translateZ maior, leve aumento de escala), com um contorno neon visível e inclinação maior nos cantos.
+
+## 1.3.0
+- **Google Calendar**, o sétimo site da Suite. O menu, o ícone e as preferências são próprios.
+  - **Tema neon** com 6 cores, incluindo Bullet. Fundo, grade, diálogos (criar/editar compromisso) e menus seguem a cor escolhida; a cor de cada compromisso continua a que você escolheu no próprio Calendar.
+  - **Hover 3D que segue o mouse** nos compromissos e nos botões, com fundo animado atrás da grade.
+  - **Modo discreto (Alt+P):** borra o título dos compromissos até passar o mouse em cima — útil em compartilhamento de tela.
+- A página inicial da Suite e o "Cor em todos os sites" incluem o Calendar.
 
 ## 1.2.4
 - Nome e descrição curta da extensão sem nomes de outras empresas (exigência da Chrome Web Store). Nada muda no funcionamento.

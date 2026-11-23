@@ -1,0 +1,65 @@
+/* CA Neon 1.0 — tema neon para calendar.google.com. Liga com body.can-theme; cor em body[data-can-color].
+   Os compromissos e as cores das agendas (barra lateral) acompanham a cor do tema escolhida. */
+body.can-theme{--can-bg:#100b1a;--can-panel:#1a1029;--can-raised:#251736;--can-line:#473159;--can-text:#f2eaff;--can-muted:#bdafce;--can-accent:#bd77ff;--can-glow:#bd77ff66;--can-event-rotate:231deg}
+body.can-theme[data-can-color=blue]{--can-accent:#5c9dff;--can-glow:#5c9dff66;--can-bg:#090f18;--can-panel:#0f1827;--can-raised:#182337;--can-line:#303f5a;--can-text:#ebf2ff;--can-muted:#b4becf;--can-event-rotate:176deg}
+body.can-theme[data-can-color=pink]{--can-accent:#ff74bb;--can-glow:#ff74bb66;--can-bg:#180911;--can-panel:#270f1b;--can-raised:#371828;--can-line:#5a3045;--can-text:#ffebf5;--can-muted:#cfb4c2;--can-event-rotate:289deg}
+body.can-theme[data-can-color=cyan]{--can-accent:#4fe0db;--can-glow:#4fe0db66;--can-bg:#091818;--can-panel:#0f2726;--can-raised:#183736;--can-line:#305a58;--can-text:#ebfffe;--can-muted:#b4cfce;--can-event-rotate:138deg}
+body.can-theme[data-can-color=green]{--can-accent:#75df95;--can-glow:#75df9566;--can-bg:#09180e;--can-panel:#0f2717;--can-raised:#183722;--can-line:#305a3e;--can-text:#ebfff1;--can-muted:#b4cfbd;--can-event-rotate:98deg}
+body.can-theme{--can-soft:color-mix(in srgb,var(--can-accent) 18%,transparent);--can-soft2:color-mix(in srgb,var(--can-accent) 30%,transparent);color-scheme:dark}
+
+/* Compromissos e as cores das agendas (minhas e as de outras pessoas) viram tons da cor do tema:
+   duotone (dessatura e reaplica só o matiz escolhido), preservando a diferença de claro/escuro
+   entre eles para continuarem distinguíveis. */
+body.can-theme:not([data-can-color=bullet]) :is([data-eventid],[style*="--checkbox-color"]){filter:grayscale(1) sepia(.8) saturate(3.2) hue-rotate(var(--can-event-rotate)) contrast(1.2) brightness(.95)!important}
+
+/* ---------- Estrutura: fundo, topo, barra lateral, grade ---------- */
+body.can-theme{background:var(--can-bg)!important;color:var(--can-text)!important}
+body.can-theme :is([role=main],[role=navigation],[role=banner],[role=complementary],header,aside,c-wiz){background-color:transparent!important;color:var(--can-text)!important}
+body.can-theme [role=main]{border-color:var(--can-line)!important}
+
+/* Grade do mês/semana/dia: linhas finas visíveis sobre o fundo escuro */
+body.can-theme [role=gridcell],body.can-theme [role=row]{border-color:var(--can-line)!important}
+body.can-theme [role=columnheader],body.can-theme [role=rowheader]{color:var(--can-muted)!important}
+
+/* Botões e links genéricos */
+body.can-theme a,body.can-theme [role=link]{color:var(--can-accent)}
+body.can-theme input,body.can-theme textarea,body.can-theme [contenteditable=true]{color:var(--can-text)!important;caret-color:var(--can-accent)}
+body.can-theme input[type=search],body.can-theme input[type=text]{background:var(--can-raised)!important;border-color:var(--can-line)!important}
+body.can-theme input:focus,body.can-theme textarea:focus{outline-color:var(--can-accent)!important}
+body.can-theme ::-webkit-scrollbar-thumb{background:var(--can-soft2)!important;border-radius:9px}
+body.can-theme ::-webkit-scrollbar-track{background:transparent!important}
+
+/* Diálogos (criar/editar compromisso, detalhes) e menus/pop-ups */
+body.can-theme [role=dialog]{background-color:var(--can-panel)!important;color:var(--can-text)!important;border:1px solid var(--can-accent)!important;box-shadow:0 18px 50px #000b,0 0 30px var(--can-glow)!important;border-radius:16px!important}
+body.can-theme [role=dialog] *{border-color:var(--can-line)}
+body.can-theme :is([role=menu],[role=listbox]){background:var(--can-panel)!important;color:var(--can-text)!important;border:1px solid var(--can-line)!important;border-radius:14px!important;box-shadow:0 18px 50px #000b,0 0 22px var(--can-glow)!important;opacity:1!important}
+body.can-theme :is([role=menu] [role=menuitem],[role=menu] [role=menuitemcheckbox],[role=menu] [role=menuitemradio],[role=listbox] [role=option]){background:transparent!important;color:var(--can-text)!important;border-radius:9px}
+body.can-theme :is([role=menu] [role=menuitem]:hover,[role=menu] [role=menuitem]:focus,[role=listbox] [role=option]:hover,[role=listbox] [aria-selected=true]){background:var(--can-soft)!important;color:var(--can-accent)!important}
+
+/* Botão "Criar" e botões primários: pílula com brilho neon.
+   Seletor específico (button.gPr58d), nunca button[jsname] sozinho: jsname é um atributo genérico
+   do framework do Google, presente em praticamente todo botão da página — usá-lo sozinho pegava
+   botões que não são o "Criar" e quebrava a aparência deles (veja o bug abaixo). */
+body.can-theme [role=button]{transition:box-shadow .2s,transform .2s cubic-bezier(.16,1,.3,1),background-color .2s,border-color .2s}
+body.can-theme :is(button.gPr58d,[role=button][aria-label*="Criar" i],[role=button][aria-label*="Create" i]){box-shadow:0 0 16px var(--can-glow)!important}
+
+/* Bug do próprio Calendar (não é do tema: reproduz igual com a extensão desligada): a etiqueta
+   "Páginas de agendamento de horário" quebra em 3 linhas nessa largura, e o botão "+" ao lado
+   fica numa posição fixa que não acompanha, sobrepondo a 2ª linha do texto. A causa real do
+   overlap era nossa própria regra button[jsname] (veja bullet.css) pintando esse botão com um
+   fundo de altura fixa; corrigido o seletor, só falta deixar o botão crescer pras 3 linhas. */
+body.can-theme button[aria-controls="bookable-pages-root"]{height:auto!important;min-height:32px!important;padding-top:6px!important;padding-bottom:6px!important}
+
+/* ---------- Corretor de contraste (classes aplicadas pelo content.js) ---------- */
+body.can-theme .can-surface{background-color:var(--can-raised)!important;color:var(--can-text)!important;border-color:var(--can-line)!important}
+body.can-theme .can-ink{color:var(--can-text)!important}
+body.can-theme .can-ink-link{color:var(--can-accent)!important}
+
+/* ---------- Hover 3D que segue o mouse (compromissos e botões) ---------- */
+body.can-tilt-on .can-follow{transform:perspective(900px) rotateX(var(--can-rx,0)) rotateY(var(--can-ry,0)) translateZ(16px) scale(1.045);transition:transform .12s cubic-bezier(.16,1,.3,1),box-shadow .2s;box-shadow:0 14px 32px #000a,0 0 0 1px color-mix(in srgb,var(--can-accent) 55%,transparent),0 0 22px var(--can-glow)!important;overflow:hidden;position:relative;z-index:5;will-change:transform}
+.can-spot{position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:radial-gradient(circle at var(--can-x,50%) var(--can-y,50%),color-mix(in srgb,var(--can-accent,#bd77ff) 55%,transparent),transparent 70%);mix-blend-mode:screen}
+@media(prefers-reduced-motion:reduce){body.can-theme .can-follow{transform:none!important;transition:none!important}}
+
+/* ---------- Modo discreto (Alt+P): borra o título dos compromissos até passar o mouse ---------- */
+body.can-privacy [data-eventid]{filter:blur(5px);transition:filter .15s}
+body.can-privacy [data-eventid]:hover{filter:none}
