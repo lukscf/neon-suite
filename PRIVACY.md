@@ -3,7 +3,7 @@
 **Resumo: a extensão não coleta nem envia dados seus.** Não tem servidor, conta, analytics nem telemetria.
 
 ## Onde ela roda
-Só em `mail.google.com`, `web.whatsapp.com`, `app.slack.com`, `www.youtube.com`, `www.primevideo.com` e `pluto.tv`.
+Só em `mail.google.com`, `web.whatsapp.com`, `app.slack.com`, `www.youtube.com`, `www.primevideo.com` e `pluto.tv`. Se você ligar "Abrir links do Slack no navegador", a extensão também ganha acesso a `*.slack.com`, onde não roda código: só redireciona links de workspace para `app.slack.com`.
 
 ## O que ela lê e por quê
 | Site | O que é lido | Para quê |
@@ -23,6 +23,7 @@ Só em `mail.google.com`, `web.whatsapp.com`, `app.slack.com`, `www.youtube.com`
 | YouTube: ponto em que parou (até 400 vídeos) e velocidade por canal | `chrome.storage.local`, só neste navegador; dá para apagar em Opções |
 | WhatsApp: modelo Whisper e transcrições já feitas | Armazenamento local da extensão, só neste PC |
 | Slack: vínculo aviso → aba, para o clique abrir a conversa | `chrome.storage.session`, apagado ao fechar o navegador |
+| Slack: endereço e ID de cada workspace que você abre (ex.: `minhaempresa.slack.com` → `T0123`), lidos da configuração local do Slack | `chrome.storage.local`, só neste navegador |
 
 ## Conexões de rede
 Só uma: na primeira transcrição do WhatsApp, o modelo Whisper é baixado do Hugging Face (huggingface.co). Fica guardado no PC e não envia nenhum áudio. Fora isso, a extensão não faz conexões de rede.
@@ -33,6 +34,8 @@ Só uma: na primeira transcrição do WhatsApp, o modelo Whisper é baixado do H
 - **`notifications`:** o aviso do Windows das mensagens do Slack.
 - **`scripting`:** o atalho global e o popup abrem o player flutuante do YouTube.
 - **`activeTab`:** o popup confere se a extensão está ativa na aba aberta.
+- **`declarativeNetRequestWithHostAccess`:** redirecionar links de `<workspace>.slack.com` para `app.slack.com`, para o Slack abrir no navegador em vez de pedir o app instalado. Só age em sites a que a extensão já tem acesso.
 - **Acesso aos seis sites:** aplicar o tema e os recursos só neles.
+- **Acesso a `*.slack.com` (opcional):** pedido só quando você liga "Abrir links do Slack no navegador", e retirado quando desliga; é o que permite redirecionar esses links. Nenhum script roda nesses endereços.
 
 Projeto independente. Gmail e YouTube são marcas do Google LLC, WhatsApp da Meta, Slack da Slack Technologies, LLC Prime Video da Amazon.com, Inc. e Pluto TV da Paramount.

@@ -1,5 +1,13 @@
 # Histórico
 
+## 1.3.0
+- **Slack: links abrem direto no navegador.** Link de `<workspace>.slack.com` (canal, DM, mensagem ou thread) abria a página "Iniciando...", que tenta abrir o app do Slack e faz o Windows pedir um aplicativo. Agora a extensão redireciona o link para `app.slack.com` antes de a página carregar.
+  - Mensagem e thread abrem com a mensagem no painel lateral.
+  - É opcional: ligue em "Abrir links do Slack no navegador", no menu do Slack. Só aí o Chrome pede acesso a `*.slack.com`. Quem não liga não vê aviso de permissão nova, e a atualização não desativa a extensão.
+  - Funciona depois que você abre o workspace uma vez em `app.slack.com` com a extensão ligada: é ali que ela aprende o ID do workspace.
+  - Nova permissão `declarativeNetRequestWithHostAccess`, que não mostra aviso na instalação.
+- **Slack: a barra "N respostas" funciona em qualquer ponto.** O hover 3D girava a barra dentro da mensagem, que também gira, e em alguns pontos o clique caía na mensagem. Agora a barra brilha sem girar, e clicar em qualquer parte dela (fundo, "Última resposta") abre a thread.
+
 ## 1.2.4
 - Nome e descrição curta da extensão sem nomes de outras empresas (exigência da Chrome Web Store). Nada muda no funcionamento.
 

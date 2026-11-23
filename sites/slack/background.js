@@ -86,6 +86,67 @@ chrome.notifications.onClosed.addListener(async (nid) => {
   chrome.tabs.sendMessage(link.tabId, { type: "sln-notify-closed", id: link.id }).catch(() => {});
 });
 
+// ---------- Links do Slack direto no navegador ----------
+// Link de <workspace>.slack.com (archives, messages, raiz) abre a página "Iniciando..." do Slack, que
+// tenta abrir o app instalado (slack://) e faz o Windows pedir um aplicativo. Aqui a navegação é
+// redirecionada antes de a página carregar para app.slack.com/client/<ID do workspace>/...
+// O vínculo endereço → ID vem de sites/slack/links.js, aprendido quando você usa o app.slack.com.
+const RULE_BASE = 7000, RULE_MAX = 7999;
+const HOST = /^[a-z0-9-]+(\.[a-z0-9-]+)*\.slack\.com$/;
+const ID = /^[TE][A-Z0-9]{4,}$/;
+
+function rulesFor(host, team, base) {
+  const h = "^https://" + host.replace(/\./g, "\\.");
+  const app = `https://app.slack.com/client/${team}`;
+  const rule = (n, priority, regexFilter, regexSubstitution) => ({
+    id: base + n, priority,
+    action: { type: "redirect", redirect: { regexSubstitution } },
+    condition: { regexFilter, resourceTypes: ["main_frame"] }
+  });
+  return [
+    // resposta numa thread: abre a thread da mensagem pai
+    rule(0, 4, h + "/archives/([A-Z0-9]+)/p\\d+\\?(?:[^#]*&)?thread_ts=(\\d{10}\\.\\d{6})", `${app}/\\1/thread/\\1-\\2`),
+    // mensagem: abre o canal com a mensagem aberta no painel lateral
+    rule(1, 3, h + "/archives/([A-Z0-9]+)/p(\\d{10})(\\d{6})", `${app}/\\1/thread/\\1-\\2.\\3`),
+    // canal ou DM
+    rule(2, 2, h + "/(?:archives|messages)/([A-Z0-9]+)/?(?:[?#].*)?$", `${app}/\\1`),
+    // raiz do workspace
+    rule(3, 2, h + "/?$", app)
+  ];
+}
+
+// O acesso a *.slack.com é opcional (optional_host_permissions): só existe depois que você liga
+// "Abrir links do Slack no navegador" no popup. Sem ele, nenhuma regra fica ativa.
+const LINK_ORIGINS = ["https://*.slack.com/*"];
+// Sempre remove a faixa inteira de IDs, sem ler as regras antes: duas chamadas ao mesmo tempo
+// não tentam criar o mesmo ID.
+const ALL_RULE_IDS = Array.from({ length: RULE_MAX - RULE_BASE + 1 }, (_, i) => RULE_BASE + i);
+
+async function applyLinkRules() {
+  try {
+    const allowed = await chrome.permissions.contains({ origins: LINK_ORIGINS });
+    const { teams = {} } = allowed ? await NS.local.get({ teams: {} }) : {};
+    const addRules = [];
+    let base = RULE_BASE;
+    for (const [host, team] of Object.entries(teams || {})) {
+      if (!HOST.test(host) || host === "app.slack.com" || !ID.test(team)) continue;
+      if (base + 3 > RULE_MAX) break;
+      addRules.push(...rulesFor(host, team, base));
+      base += 4;
+    }
+    await chrome.declarativeNetRequest.updateDynamicRules({ removeRuleIds: ALL_RULE_IDS, addRules });
+  } catch (error) {
+    console.warn("SL Neon: não foi possível atualizar o redirecionamento de links", error);
+  }
+}
+
+chrome.runtime.onInstalled.addListener(() => applyLinkRules());
+chrome.permissions.onAdded.addListener(() => applyLinkRules());
+chrome.permissions.onRemoved.addListener(() => applyLinkRules());
+NS.onChanged.addListener((changes, area) => {
+  if (area === "local" && changes.teams) applyLinkRules();
+});
+
 chrome.runtime.onMessage.addListener((msg, sender, reply) => {
   if (!sender.tab?.url?.startsWith("https://app.slack.com/")) return;
   if (msg?.type === "sln-notify") {

@@ -184,6 +184,18 @@
     pointer = { x: event.clientX, y: event.clientY };
     if (!tiltFrame) tiltFrame = requestAnimationFrame(paintTilt);
   }, { passive: true, capture: true });
+  // ---------- Barra "N respostas" inteira clicável ----------
+  // Clique em qualquer ponto da barra (fundo, espaço vazio, "Última resposta") abre a thread, como o
+  // "N respostas". Fotos e links dentro dela continuam com o comportamento deles.
+  document.addEventListener("click", (event) => {
+    if (event.button !== 0 || event.defaultPrevented) return;
+    const target = event.target instanceof Element ? event.target : null;
+    const bar = target?.closest(".c-message__reply_bar");
+    if (!bar || target.closest("a, button, [role=button], [role=link]")) return;
+    const open = bar.querySelector(".c-message__reply_count, .c-message__reply_bar_view_thread, button, [role=button]");
+    if (open && open !== target) open.click();
+  });
+
   document.addEventListener("pointerleave", () => { resetTilt(); endFollow(); });
   window.addEventListener("blur", () => { resetTilt(); endFollow(); });
   reducedMotion.addEventListener("change", () => { resetTilt(); endFollow(); });
