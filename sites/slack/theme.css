@@ -132,6 +132,10 @@ body.sln-theme .sln-ink-link{color:var(--sln-accent)!important}
 
 /* ---------- 8. Hover 3D que segue o mouse (barra lateral, faixa e reações) ---------- */
 body.sln-tilt-on .sln-follow{transform:perspective(600px) rotateX(var(--sln-rx,0)) rotateY(var(--sln-ry,0)) translateZ(0) scale(1.03);transition:transform .08s linear,box-shadow .2s;box-shadow:0 6px 18px #0008,0 0 14px var(--sln-glow)!important;overflow:hidden;z-index:2}
+/* barra de respostas: brilho sem giro. Girando dentro da mensagem que também gira, partes dela
+   ficavam atrás de outras camadas e o clique não chegava. A barra inteira é clicável (content.js). */
+body.sln-theme .c-message__reply_bar{cursor:pointer}
+body.sln-tilt-on .c-message__reply_bar.sln-follow{transform:translateZ(1px) scale(1.01);transform-style:flat;z-index:4}
 .sln-spot{position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:radial-gradient(circle at var(--sln-x,50%) var(--sln-y,50%),color-mix(in srgb,var(--sln-accent,#bd77ff) 45%,transparent),transparent 60%);mix-blend-mode:screen}
 
 /* ---------- 9. Animação ao enviar ---------- */

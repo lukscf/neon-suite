@@ -75,6 +75,31 @@ document.querySelectorAll(".colors button").forEach((button) => button.addEventL
   status("Cor atualizada.");
 }));
 
+// Links do Slack no navegador: liga pedindo o acesso opcional a *.slack.com. O pedido tem de sair
+// direto do clique, sem nenhum await antes, senão o Chrome recusa por falta de gesto do usuário.
+const LINK_ORIGINS = { origins: ["https://*.slack.com/*"] };
+(async () => {
+  try { $("#openInBrowser").checked = await chrome.permissions.contains(LINK_ORIGINS); } catch {}
+})();
+$("#openInBrowser").addEventListener("change", async (event) => {
+  const box = event.target;
+  const want = box.checked;
+  try {
+    // a chamada sai antes do primeiro await: o gesto do clique ainda vale
+    const ok = await (want ? chrome.permissions.request(LINK_ORIGINS) : chrome.permissions.remove(LINK_ORIGINS));
+    if (want && !ok) {
+      box.checked = false;
+      return status("Sem a permissão, os links continuam abrindo a tela do app.", true);
+    }
+    status(want
+      ? "Links ligados. Abra o Slack em app.slack.com uma vez para a extensão conhecer seu workspace."
+      : "Links do Slack voltam ao comportamento normal.");
+  } catch {
+    box.checked = !want;
+    status("Não foi possível mudar a permissão.", true);
+  }
+});
+
 // Diagnóstico: mostra se a extensão está ativa na aba do Slack aberta.
 (async () => {
   const diag = $("#diag");
